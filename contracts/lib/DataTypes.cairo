@@ -5,3 +5,9 @@ struct ReserveData:
     member aTokenAddress : felt
     member supply : Uint256  # real Aave doesnt have this
 end
+
+struct InitReserveParams:
+    member asset : felt
+    member aTokenAddress : felt
+    member reserves_count : felt
+end

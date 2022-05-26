@@ -4,6 +4,7 @@
   "description": "Cairo pools PoC",
   "main": "index.js",
   "scripts": {
+    "compile" : "npx hardhat starknet-compile ./contracts/src --cairo-path \"./contracts/lib:./contracts/lib/cairo_contracts/src\" ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mathieu Saugier",

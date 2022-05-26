@@ -889,6 +889,25 @@
             ]
         },
         "identifiers": {
+            "__main__.InitReserveParams": {
+                "full_name": "__main__.InitReserveParams",
+                "members": {
+                    "aTokenAddress": {
+                        "cairo_type": "felt",
+                        "offset": 1
+                    },
+                    "asset": {
+                        "cairo_type": "felt",
+                        "offset": 0
+                    },
+                    "reserves_count": {
+                        "cairo_type": "felt",
+                        "offset": 2
+                    }
+                },
+                "size": 3,
+                "type": "struct"
+            },
             "__main__.ReserveData": {
                 "full_name": "__main__.ReserveData",
                 "members": {
