@@ -1,4 +1,3 @@
-node_modules
 .env
 coverage
 coverage.json
@@ -11,5 +10,11 @@ artifacts
 yarn.lock
 package-lock.json
 
-node_modules
+#ide
+.idea
 
+#compiled files
+starknet-artifacts
+
+#modules
+node_modules

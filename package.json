@@ -4,8 +4,8 @@
   "description": "Cairo pools PoC",
   "main": "index.js",
   "scripts": {
-    "compile" : "npx hardhat starknet-compile ./contracts/src --cairo-path \"./contracts/lib:./contracts/lib/cairo_contracts/src\" ",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "npx hardhat starknet-compile ./contracts/src --cairo-path \"./:./contracts/lib/cairo_contracts/src\" ",
+    "test": "npx hardhat test \"./test/pool.test.ts\" "
   },
   "author": "Mathieu Saugier",
   "license": "ISC",
@@ -43,6 +43,7 @@
     "typescript": "^4.6.4"
   },
   "dependencies": {
+    "cairo-ls": "^0.0.6",
     "starknet": "^3.9.0"
   }
 }

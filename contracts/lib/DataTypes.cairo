@@ -11,3 +11,19 @@ struct InitReserveParams:
     member aTokenAddress : felt
     member reserves_count : felt
 end
+
+struct BorrowParams:
+    member asset : felt
+    member user : felt
+    member onBehalfOf : felt
+    member amount : Uint256
+    # Rest not necessary for now
+end
+
+struct ValidateBorrowParams:
+    member reserve : ReserveData
+    member asset : felt
+    member user_address : felt
+    member amount : Uint256
+    # Rest not necessary for now
+end

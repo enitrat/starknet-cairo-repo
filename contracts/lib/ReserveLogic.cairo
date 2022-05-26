@@ -2,15 +2,7 @@
 
 from starkware.cairo.common.cairo_builtins import HashBuiltin
 from starkware.starknet.common.syscalls import storage_read, storage_write, get_caller_address
-from DataTypes import ReserveData
-from src.PoolStorage import (
-    _reserves,
-    _reservesList,
-    _reservesCount,
-    user_balance,
-    get_reserve,
-    get_balance,
-)
+from contracts.lib.DataTypes import ReserveData
 from starkware.cairo.common.uint256 import (
     Uint256,
     uint256_add,

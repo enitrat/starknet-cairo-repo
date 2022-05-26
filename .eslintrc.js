@@ -18,6 +18,9 @@ module.exports = {
   rules: {
     "prettier/prettier": 0,
     "no-unused-vars": "off",
-    // "node/no-unsupported-features/es-builtins": ["off", { ignores: ["modules"] }],
+    "prefer-const":"off",
+    "spaced-comment":"off",
+    "node/no-unsupported-features/es-syntax":"off",
+    "node/no-unsupported-features/es-builtins": ["off", { ignores: ["modules"] }],
   },
 };
