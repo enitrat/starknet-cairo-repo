@@ -21,7 +21,7 @@ namespace PoolLogic:
 
         # Get next reserve index
         let new_reserve_index = params.reserves_count + 1
-        let reserve_data = ReserveData(new_reserve_index, reserve.aTokenAddress, reserve.supply)
+        let reserve_data = ReserveData(new_reserve_index, reserve.aTokenAddress)
 
         # # Updated stored index, reserve list with aTokenAdress, reserves
         _reserves.write(asset=params.asset, value=reserve_data)

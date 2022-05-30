@@ -102,6 +102,17 @@ func transferFrom{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_
     return (TRUE)
 end
 
+# Needs modifiers to only be called from the pool
+@external
+func transferUnderlyingTo{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}(
+    target : felt, amount : Uint256
+):
+    alloc_locals
+    let (local underlying) = _underlying.read()
+    IERC20.transfer(contract_address=underlying, recipient=target, amount=amount)
+    return ()
+end
+
 @external
 func approve{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}(
     spender : felt, amount : Uint256

@@ -9,6 +9,7 @@ from openzeppelin.security.safemath import SafeUint256
 from openzeppelin.token.erc20.interfaces.IERC20 import IERC20
 from contracts.lib.IAToken import IAToken
 from contracts.lib.IMintable import IMintable
+from contracts.lib.ValidationLogic import ValidationLogic
 
 from starkware.cairo.common.bool import TRUE, FALSE
 
@@ -20,10 +21,10 @@ namespace SupplyLogic:
     ):
         alloc_locals
         # amount must be valid
-        let (caller) = get_caller_address()
-        uint256_check(amount)
         let (reserve) = _reserves.read(asset)  # parenthesis required to unpack function result
-
+        ValidationLogic.validate_supply(reserve, amount)
+        
+        let (caller) = get_caller_address()
         let (caller_balance) = IERC20.balanceOf(asset, caller)
         # Transfer underlying from caller to aTokenAddress
         IERC20.transferFrom(
@@ -44,27 +45,7 @@ namespace SupplyLogic:
         uint256_check(amount)
         let (caller) = get_caller_address()
         let (reserve) = _reserves.read(asset)  # parenthesis required to unpack struct?
-
-        # Revert if uninitialized reserve
-        with_attr error_message("Reserve not initialized"):
-            assert_not_zero(reserve.aTokenAddress)
-        end
-
-        # aToken balance of caller
-        let (caller_balance) = IAToken.balanceOf(reserve.aTokenAddress, caller)
-
-        # ## Validate withdraw ###
-
-        with_attr error_message("Can't withdraw a null amount"):
-            let (is_null) = uint256_eq(amount, Uint256(0, 0))
-            assert is_null = FALSE
-        end
-
-        # Revert if withdrawing too much. Verify that amount<=balance
-        with_attr error_message("Withdraw amount exceeds balance"):
-            let (is_lt : felt) = uint256_le(amount, caller_balance)
-            assert is_lt = TRUE
-        end
+        ValidationLogic.validate_withdraw(reserve, amount, caller)
 
         # for now, simple implementation, burns coins and returns underlying
         IAToken.burn(

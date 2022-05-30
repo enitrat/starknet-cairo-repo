@@ -3,7 +3,6 @@ from starkware.cairo.common.uint256 import Uint256, uint256_add, uint256_check
 struct ReserveData:
     member id : felt
     member aTokenAddress : felt
-    member supply : Uint256  # real Aave doesnt have this
 end
 
 struct InitReserveParams:
@@ -12,12 +11,19 @@ struct InitReserveParams:
     member reserves_count : felt
 end
 
-struct BorrowParams:
+struct ExecuteBorrowParams:
     member asset : felt
     member user : felt
     member onBehalfOf : felt
     member amount : Uint256
     # Rest not necessary for now
+end
+
+struct ExecuteRepayParams:
+    member asset : felt
+    member amount : Uint256
+    member onBehalfOf : felt
+    # Can't use aTokens yet
 end
 
 struct ValidateBorrowParams:
@@ -26,4 +32,7 @@ struct ValidateBorrowParams:
     member user_address : felt
     member amount : Uint256
     # Rest not necessary for now
+end
+
+struct ValidateRepayParams:
 end

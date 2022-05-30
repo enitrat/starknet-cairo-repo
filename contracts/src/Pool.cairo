@@ -1,9 +1,9 @@
 %lang starknet
 
 from starkware.cairo.common.cairo_builtins import HashBuiltin
-from starkware.starknet.common.syscalls import storage_read, storage_write
+from starkware.starknet.common.syscalls import storage_read, storage_write, get_caller_address
 from starkware.cairo.common.uint256 import Uint256
-from contracts.lib.DataTypes import InitReserveParams
+from contracts.lib.DataTypes import InitReserveParams, ExecuteBorrowParams, ExecuteRepayParams
 from openzeppelin.token.erc20.interfaces.IERC20 import IERC20
 
 from contracts.src.PoolStorage import _reserves_count
@@ -43,5 +43,15 @@ end
 func borrow{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}(
     asset : felt, amount : Uint256, onBehalfOf : felt
 ):
+    let (caller) = get_caller_address()
+    BorrowLogic.execute_borrow(ExecuteBorrowParams(asset, caller, onBehalfOf, amount))
+    return ()
+end
+
+@external
+func repay{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}(
+    asset : felt, amount : Uint256, onBehalfOf : felt
+):
+    BorrowLogic.execute_repay(ExecuteRepayParams(asset, amount, onBehalfOf))
     return ()
 end

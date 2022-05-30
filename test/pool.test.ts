@@ -10,21 +10,17 @@ import { Account } from "hardhat/types";
 import { number } from "starknet";
 import { bnToUint256, Uint256 } from "starknet/dist/utils/uint256";
 
-interface ReserveData {
-  id: BigInt;
-  aTokenAddress: BigInt;
-  supply: Uint256;
-}
-
 describe("Aave pool test", async () => {
   let poolContractFactory: StarknetContractFactory;
   let poolContract: StarknetContract;
   let ATokenFactory: StarknetContractFactory;
   let aTokenContract: StarknetContract;
   let ERC20Factory: StarknetContractFactory;
-  let erc20Contract: StarknetContract;
+  let tokenTest1: StarknetContract;
   let account: Account;
+  let secondAccount:Account
   let accountAddress: string;
+  let secondAddress:string;
 
   before(async () => {
     poolContractFactory = await starknet.getContractFactory(
@@ -38,17 +34,21 @@ describe("Aave pool test", async () => {
     console.log("Pool deployed at" + poolContract.address);
     account = await starknet.deployAccount("OpenZeppelin");
     accountAddress = account.starknetContract.address;
+    
+    secondAccount = await starknet.deployAccount("OpenZeppelin");
+    secondAddress = account.starknetContract.address;
+
     console.log("Account deployed at deployed at" + accountAddress);
 
     //Deploy erc20 first
-    erc20Contract = await ERC20Factory.deploy({
+    tokenTest1 = await ERC20Factory.deploy({
       name: 1415934836,
       symbol: 5526356,
       decimals: 18,
       initial_supply: bnToUint256(1000),
       recipient: accountAddress,
     });
-    console.log("erc20 contract deployed at" + erc20Contract.address);
+    console.log("erc20 contract deployed at" + tokenTest1.address);
 
     //Deploy aToken
     aTokenContract = await ATokenFactory.deploy({
@@ -58,20 +58,20 @@ describe("Aave pool test", async () => {
       initial_supply: bnToUint256(0),
       recipient: poolContract.address,
       owner: poolContract.address,
-      underlying: erc20Contract.address,
+      underlying: tokenTest1.address,
     });
     console.log("aToken contract deployed at" + aTokenContract.address);
   });
 
   it("Should init reserve", async () => {
     await account.invoke(poolContract, "init_reserve", {
-      asset: erc20Contract.address,
+      asset: tokenTest1.address,
       aTokenAddress: aTokenContract.address,
     });
 
     let reserve = await poolContract
       .call("get_reserve", {
-        asset: erc20Contract.address,
+        asset: tokenTest1.address,
       })
       .then((res) => res.reserve);
 
@@ -82,7 +82,7 @@ describe("Aave pool test", async () => {
 
   it("Should deposit supply", async () => {
     //account
-    let erc20Balance = await erc20Contract
+    let erc20Balance = await tokenTest1 
       .call("balanceOf", {
         account: accountAddress,
       })
@@ -98,11 +98,11 @@ describe("Aave pool test", async () => {
     expect(aTokenBalance.low).equal(0n);
 
     //Approve token for poolContract
-    await account.invoke(erc20Contract, "approve", {
+    await account.invoke(tokenTest1, "approve", {
       spender: poolContract.address,
       amount: bnToUint256(100),
     });
-    let remainingAllowance = await erc20Contract
+    let remainingAllowance = await tokenTest1 
       .call("allowance", {
         owner: accountAddress,
         spender: poolContract.address,
@@ -112,13 +112,13 @@ describe("Aave pool test", async () => {
 
     //Supply assets
     await account.invoke(poolContract, "supply", {
-      asset: erc20Contract.address,
+      asset: tokenTest1.address,
       amount: bnToUint256(100),
       onBehalfOf: accountAddress,
     });
 
     //900 collateral remaining in account
-    let remainingErc20 = await erc20Contract
+    let remainingErc20 = await tokenTest1 
       .call("balanceOf", {
         account: accountAddress,
       })
@@ -134,7 +134,7 @@ describe("Aave pool test", async () => {
     expect(newATokens.low).equal(100n);
 
     //aTokenAddress owns 100 collateral tokens
-    let suppliedUnderlying = await erc20Contract
+    let suppliedUnderlying = await tokenTest1 
       .call("balanceOf", {
         account: aTokenContract.address,
       })
@@ -146,7 +146,7 @@ describe("Aave pool test", async () => {
     //Before withdrawing, need to give allowance to AToken contract to move
     try {
       account.invoke(poolContract, "withdraw", {
-        asset: erc20Contract.address,
+        asset: tokenTest1.address,
         amount: bnToUint256(200),
         to: accountAddress,
       });
@@ -159,33 +159,90 @@ describe("Aave pool test", async () => {
     //Before withdrawing, need to give allowance to AToken contract to move
 
     await account.invoke(poolContract, "withdraw", {
-      asset: erc20Contract.address,
-      amount: bnToUint256(100),
+      asset: tokenTest1.address,
+      amount: bnToUint256(50),
       to: accountAddress,
     });
 
-    //Account back to 1000 erc20
-    const accountErc20 = await erc20Contract
+    //Account back to 950n erc20
+    const accountErc20 = await tokenTest1 
       .call("balanceOf", {
         account: accountAddress,
       })
       .then((res) => res.balance);
-    expect(accountErc20.low).equal(1000n);
+    expect(accountErc20.low).equal(950n);
 
-    //account owns 0 aToken (burnt)
+    //account owns 50 aToken (burnt)
     let accountATokens = await aTokenContract
       .call("balanceOf", {
         account: accountAddress,
       })
       .then((res) => res.balance);
-    expect(accountATokens.low).equal(0n);
+    expect(accountATokens.low).equal(50n);
 
-    //aTokenAddress back to 0 erc20 (transfered to account)
-    let newATokens = await erc20Contract
+    //aTokenAddress back to 50 erc20 (50 transfered to account)
+    let newATokens = await tokenTest1 
       .call("balanceOf", {
         account: aTokenContract.address,
       })
       .then((res) => res.balance);
-    expect(newATokens.low).equal(0n);
+    expect(newATokens.low).equal(50n);
+  });
+
+  it("Should borrow tokens", async () => {
+    //Before withdrawing, need to give allowance to AToken contract to move
+
+    await account.invoke(poolContract, "borrow", {
+      asset: tokenTest1.address,
+      amount: bnToUint256(10),
+      onBehalfOf: accountAddress,
+    });
+
+    //Account now has 60 erc20
+    const accountErc20 = await tokenTest1 
+      .call("balanceOf", {
+        account: accountAddress,
+      })
+      .then((res) => res.balance);
+    expect(accountErc20.low).equal(960n);
+
+    //aTokenAddress has 40 erc20 (10 more transfered to account)
+    let newATokens = await tokenTest1 
+      .call("balanceOf", {
+        account: aTokenContract.address,
+      })
+      .then((res) => res.balance);
+    expect(newATokens.low).equal(40n);
+  });
+
+  it("Should repay tokens", async () => {
+    //Before withdrawing, need to give allowance to AToken contract to move
+
+    await account.invoke(tokenTest1, "approve", {
+      spender: poolContract.address,
+      amount: bnToUint256(10),
+    });
+
+    await account.invoke(poolContract, "repay", {
+      asset: tokenTest1.address,
+      amount: bnToUint256(10),
+      onBehalfOf: accountAddress,
+    });
+
+    //Account now has 950 erc20
+    const accountErc20 = await tokenTest1 
+      .call("balanceOf", {
+        account: accountAddress,
+      })
+      .then((res) => res.balance);
+    expect(accountErc20.low).equal(950n);
+
+    //aTokenAddress has 50 erc20 (10 more transfered to account)
+    let newATokens = await tokenTest1 
+      .call("balanceOf", {
+        account: aTokenContract.address,
+      })
+      .then((res) => res.balance);
+    expect(newATokens.low).equal(50n);
   });
 });

@@ -21,7 +21,7 @@ namespace ReserveLogic:
         end
 
         # Write aTokenAddress in reserve
-        let new_reserve = ReserveData(reserve.id, aTokenAddress, Uint256(0, 0))
+        let new_reserve = ReserveData(reserve.id, aTokenAddress)
 
         # TODO add other params such as liq index, debt tokens addresses...
         return (new_reserve)
