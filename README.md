@@ -1,11 +1,11 @@
-# Cairo-pools
+# Starknet Cairo Repo
 
-PoC of a lending pool protocol on Starknet.
+This is a repository containing my Cairo projects.
 
-## Compile
+## Cairo-pools
 
-Run `yarn compile`
+Inside Cairo-pools, you'll find the beginning of a DeFi lending protocol inspired by Aave v3's design on Ethereum.
 
-## Test
+## Testing protostar
 
-Run `yarn test`
+Inside testing-protostar, you'll find code written specifically for the purpose of testing the protostar dev environment.

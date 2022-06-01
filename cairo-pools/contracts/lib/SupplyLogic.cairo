@@ -26,6 +26,7 @@ namespace SupplyLogic:
         
         let (caller) = get_caller_address()
         let (caller_balance) = IERC20.balanceOf(asset, caller)
+        
         # Transfer underlying from caller to aTokenAddress
         IERC20.transferFrom(
             contract_address=asset, sender=caller, recipient=reserve.aTokenAddress, amount=amount
