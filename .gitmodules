@@ -1,0 +1,3 @@
+[submodule "cairo_contracts"]
+	url = https://github.com/OpenZeppelin/cairo-contracts
+	path = testing-protostar/lib/cairo_contracts
