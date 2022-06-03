@@ -2,7 +2,7 @@
 
 from starkware.cairo.common.cairo_builtins import HashBuiltin
 from starkware.starknet.common.syscalls import storage_read, storage_write, get_caller_address
-from contracts.lib.DataTypes import ReserveData
+from contracts.lib.types.DataTypes import DataTypes
 from starkware.cairo.common.uint256 import (
     Uint256,
     uint256_add,
@@ -13,15 +13,15 @@ from starkware.cairo.common.uint256 import (
 
 namespace ReserveLogic:
     func init{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}(
-        reserve : ReserveData, aTokenAddress : felt
-    ) -> (reserve : ReserveData):
+        reserve : DataTypes.ReserveData, aToken_address : felt
+    ) -> (reserve : DataTypes.ReserveData):
         # Verify reserve was not priorly initialized
         with_attr error_message("Reserve already initialized for {asset}"):
-            assert reserve.aTokenAddress = 0
+            assert reserve.aToken_address = 0
         end
 
-        # Write aTokenAddress in reserve
-        let new_reserve = ReserveData(reserve.id, aTokenAddress)
+        # Write aToken_address in reserve
+        let new_reserve = DataTypes.ReserveData(reserve.id, aToken_address)
 
         # TODO add other params such as liq index, debt tokens addresses...
         return (new_reserve)

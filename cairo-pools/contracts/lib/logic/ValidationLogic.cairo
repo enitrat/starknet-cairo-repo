@@ -2,7 +2,7 @@
 
 from starkware.cairo.common.cairo_builtins import HashBuiltin
 from starkware.starknet.common.syscalls import storage_read, storage_write, get_caller_address
-from contracts.lib.DataTypes import ReserveData, ValidateBorrowParams, ValidateRepayParams
+from contracts.lib.types.DataTypes import DataTypes
 from contracts.lib.IAToken import IAToken
 from openzeppelin.token.erc20.interfaces.IERC20 import IERC20
 from openzeppelin.security.safemath import SafeUint256
@@ -11,7 +11,7 @@ from starkware.cairo.common.math import assert_not_equal, assert_not_zero
 from starkware.cairo.common.bool import TRUE, FALSE
 
 namespace ValidationLogic:
-    func validate_supply{range_check_ptr}(reserve : ReserveData, amount : Uint256):
+    func validate_supply{range_check_ptr}(reserve : DataTypes.ReserveData, amount : Uint256):
         uint256_check(amount)
 
         with_attr error_message("Amount must be greater than 0"):
@@ -20,14 +20,16 @@ namespace ValidationLogic:
         end
         # Revert if uninitialized reserve, doesn't exist in aave codebase ?
         with_attr error_message("Reserve not initialized"):
-            assert_not_zero(reserve.aTokenAddress)
+            assert_not_zero(reserve.aToken_address)
         end
+
+        # TODO supply, frozen reserves
 
         return ()
     end
 
     func validate_withdraw{syscall_ptr : felt*, range_check_ptr}(
-        reserve : ReserveData, amount : Uint256, user : felt
+        reserve : DataTypes.ReserveData, amount : Uint256, user_balance : Uint256
     ):
         alloc_locals
         with_attr error_message("Amount must be greater than 0"):
@@ -37,11 +39,8 @@ namespace ValidationLogic:
 
         # Revert if uninitialized reserve, doesn't exist in aave codebase ?
         with_attr error_message("Reserve not initialized"):
-            assert_not_zero(reserve.aTokenAddress)
+            assert_not_zero(reserve.aToken_address)
         end
-
-        # aToken balance of caller
-        let (local caller_balance) = IAToken.balanceOf(reserve.aTokenAddress, user)
 
         # ## Validate withdraw ###
 
@@ -52,19 +51,19 @@ namespace ValidationLogic:
 
         # Revert if withdrawing too much. Verify that amount<=balance
         with_attr error_message("Withdraw amount exceeds balance"):
-            let (is_lt : felt) = uint256_le(amount, caller_balance)
+            let (is_lt : felt) = uint256_le(amount, user_balance)
             assert is_lt = TRUE
         end
         return ()
     end
 
-    func validate_borrow(params : ValidateBorrowParams):
+    func validate_borrow(params : DataTypes.ValidateBorrowParams):
         # TODO CalculateUserData
 
         return ()
     end
 
-    func validate_repay(params : ValidateRepayParams):
+    func validate_repay(params : DataTypes.ValidateRepayParams):
         return ()
     end
 end

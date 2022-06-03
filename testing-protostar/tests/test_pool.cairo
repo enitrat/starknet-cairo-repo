@@ -1,7 +1,7 @@
 %lang starknet
 from starkware.cairo.common.cairo_builtins import HashBuiltin
 from contracts.lib.IPool import IPool
-from contracts.lib.DataTypes import ReserveData
+from contracts.lib.types.DataTypes import DataTypes
 from openzeppelin.token.erc20.interfaces.IERC20 import IERC20
 from starkware.cairo.common.uint256 import Uint256
 from contracts.lib.IAtoken import IAToken
@@ -33,7 +33,7 @@ func deploy_contract{syscall_ptr : felt*, range_check_ptr}() -> (
     # We deploy contract and put its address into a local variable. Second argument is calldata array
     %{
         BASE_PATH = "../cairo-pools/"
-        ids.contract_address = deploy_contract(BASE_PATH+"contracts/src/Pool.cairo", []).contract_address
+        ids.contract_address = deploy_contract(BASE_PATH+"contracts/src/Pool.cairo", [0]).contract_address
 
         ids.test_token_address = deploy_contract(BASE_PATH+"contracts/src/ERC20.cairo", [1415934836,5526356,18,1000,0,ids.PRANK_USER]).contract_address 
 
@@ -47,7 +47,7 @@ func init_reserve{syscall_ptr : felt*, range_check_ptr}(
 ):
     IPool.init_reserve(pool, test_token, aToken)
     let (reserve) = IPool.get_reserve(pool, test_token)
-    assert reserve.aTokenAddress = aToken
+    assert reserve.aToken_address = aToken
     return ()
 end
 
@@ -62,7 +62,7 @@ func supply{syscall_ptr : felt*, range_check_ptr}(pool : felt, test_token : felt
         stop_prank_pool = start_prank(ids.PRANK_USER, target_contract_address=ids.pool)
         stop_prank_token()
     %}
-    IPool.supply(pool, test_token, Uint256(100, 0), PRANK_USER)
+    IPool.supply(pool, test_token, Uint256(100, 0), PRANK_USER, 0)
     %{ stop_prank_pool() %}
 
     let (user_tokens) = IERC20.balanceOf(test_token, PRANK_USER)
@@ -97,7 +97,7 @@ end
 
 func borrow{syscall_ptr : felt*, range_check_ptr}(pool : felt, test_token : felt, aToken : felt):
     %{ stop_prank_pool= start_prank(ids.PRANK_USER, target_contract_address=ids.pool) %}
-    IPool.borrow(pool, test_token, Uint256(10, 0), PRANK_USER)
+    IPool.borrow(pool, test_token, Uint256(10, 0), 0, 0, PRANK_USER)
     %{ stop_prank_pool() %}
 
     let (user_tokens) = IERC20.balanceOf(test_token, PRANK_USER)
@@ -120,7 +120,7 @@ func repay{syscall_ptr : felt*, range_check_ptr}(pool : felt, test_token : felt,
         stop_prank_pool = start_prank(ids.PRANK_USER, target_contract_address=ids.pool)
         stop_prank_token()
     %}
-    IPool.repay(pool, test_token, Uint256(10, 0), PRANK_USER)
+    IPool.repay(pool, test_token, Uint256(10, 0), 0, PRANK_USER)
 
     %{ stop_prank_pool() %}
 

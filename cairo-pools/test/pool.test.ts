@@ -30,7 +30,7 @@ describe("Aave pool test", async () => {
     ERC20Factory = await starknet.getContractFactory("./contracts/src/ERC20");
 
     console.log("deploying");
-    poolContract = await poolContractFactory.deploy({});
+    poolContract = await poolContractFactory.deploy({ provider: 0 });
     console.log("Pool deployed at" + poolContract.address);
     account = await starknet.deployAccount("OpenZeppelin");
     accountAddress = account.starknetContract.address;
@@ -66,7 +66,7 @@ describe("Aave pool test", async () => {
   it("Should init reserve", async () => {
     await account.invoke(poolContract, "init_reserve", {
       asset: testToken.address,
-      aTokenAddress: aToken.address,
+      aToken_address: aToken.address,
     });
 
     let reserve = await poolContract
@@ -75,7 +75,7 @@ describe("Aave pool test", async () => {
       })
       .then((res) => res.reserve);
 
-    expect(reserve.aTokenAddress.toString()).equal(
+    expect(reserve.aToken_address.toString()).equal(
       number.toBN(aToken.address).toString()
     );
   });
@@ -91,7 +91,8 @@ describe("Aave pool test", async () => {
     await account.invoke(poolContract, "supply", {
       asset: testToken.address,
       amount: bnToUint256(100),
-      onBehalfOf: accountAddress,
+      on_behalf_of: accountAddress,
+      referral_code: 0,
     });
 
     //900 collateral remaining in account
@@ -110,7 +111,7 @@ describe("Aave pool test", async () => {
       .then((res) => res.balance);
     expect(useraTokens.low).equal(100n);
 
-    //aTokenAddress owns 100 collateral tokens
+    //aToken_address owns 100 collateral tokens
     let poolCollat = await testToken
       .call("balanceOf", {
         account: aToken.address,
@@ -157,7 +158,7 @@ describe("Aave pool test", async () => {
       .then((res) => res.balance);
     expect(useraTokens.low).equal(50n);
 
-    //aTokenAddress back to 50 erc20 (50 transfered to account)
+    //aToken_address back to 50 erc20 (50 transfered to account)
     let poolCollat = await testToken
       .call("balanceOf", {
         account: aToken.address,
@@ -172,7 +173,9 @@ describe("Aave pool test", async () => {
     await account.invoke(poolContract, "borrow", {
       asset: testToken.address,
       amount: bnToUint256(10),
-      onBehalfOf: accountAddress,
+      interest_rate_mode: 0,
+      referral_code: 0,
+      on_behalf_of: accountAddress,
     });
 
     //Account now has 60 erc20
@@ -183,7 +186,7 @@ describe("Aave pool test", async () => {
       .then((res) => res.balance);
     expect(userTokens.low).equal(960n);
 
-    //aTokenAddress has 40 erc20 (10 more transfered to account)
+    //aToken_address has 40 erc20 (10 more transfered to account)
     let poolCollat = await testToken
       .call("balanceOf", {
         account: aToken.address,
@@ -203,7 +206,8 @@ describe("Aave pool test", async () => {
     await account.invoke(poolContract, "repay", {
       asset: testToken.address,
       amount: bnToUint256(10),
-      onBehalfOf: accountAddress,
+      interest_rate_mode: 0,
+      on_behalf_of: accountAddress,
     });
 
     //Account now has 950 erc20
@@ -214,7 +218,7 @@ describe("Aave pool test", async () => {
       .then((res) => res.balance);
     expect(userTokens.low).equal(950n);
 
-    //aTokenAddress has 50 erc20 (10 more transfered to account)
+    //aToken_address has 50 erc20 (10 more transfered to account)
     let poolCollat = await testToken
       .call("balanceOf", {
         account: aToken.address,
