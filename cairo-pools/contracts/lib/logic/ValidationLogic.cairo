@@ -3,7 +3,7 @@
 from starkware.cairo.common.cairo_builtins import HashBuiltin
 from starkware.starknet.common.syscalls import storage_read, storage_write, get_caller_address
 from contracts.lib.types.DataTypes import DataTypes
-from contracts.lib.IAToken import IAToken
+from contracts.interfaces.IAToken import IAToken
 from openzeppelin.token.erc20.interfaces.IERC20 import IERC20
 from openzeppelin.security.safemath import SafeUint256
 from starkware.cairo.common.uint256 import Uint256, uint256_eq, uint256_le, uint256_check

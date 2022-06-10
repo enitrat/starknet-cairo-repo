@@ -1,0 +1,7 @@
+diff --git a/exercises/syntax/syntax03.cairo b/exercises/syntax/syntax03.cairo
+index c07022c..6576af4 100644
+--- a/exercises/syntax/syntax03.cairo
++++ b/exercises/syntax/syntax03.cairo
+@@ -9 +9 @@
+-func takes_two_arguments_and_returns_one() -> ():
++func takes_two_arguments_and_returns_one(a : felt, b : felt) -> (result : felt):

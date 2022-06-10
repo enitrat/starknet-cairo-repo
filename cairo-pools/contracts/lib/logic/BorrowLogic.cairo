@@ -5,7 +5,7 @@ from starkware.starknet.common.syscalls import storage_read, storage_write, get_
 from contracts.lib.types.DataTypes import DataTypes
 from contracts.src.PoolStorage import _reserves
 from openzeppelin.token.erc20.interfaces.IERC20 import IERC20
-from contracts.lib.IAToken import IAToken
+from contracts.interfaces.IAToken import IAToken
 
 namespace BorrowLogic:
     func execute_borrow{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}(

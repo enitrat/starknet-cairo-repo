@@ -1,10 +1,10 @@
 %lang starknet
 from starkware.cairo.common.cairo_builtins import HashBuiltin
-from contracts.lib.IPool import IPool
+from contracts.interfaces.IPool import IPool
 from contracts.lib.types.DataTypes import DataTypes
 from openzeppelin.token.erc20.interfaces.IERC20 import IERC20
 from starkware.cairo.common.uint256 import Uint256
-from contracts.lib.IAtoken import IAToken
+from contracts.interfaces.IAtoken import IAToken
 from starkware.cairo.common.math import assert_not_equal, assert_not_zero
 
 const PRANK_USER = 123
