@@ -25,7 +25,7 @@
         "EXTERNAL": [],
         "L1_HANDLER": [
             {
-                "offset": "0x39",
+                "offset": "0x3a",
                 "selector": "0x0"
             }
         ]
@@ -37,6 +37,9 @@
             "range_check"
         ],
         "data": [
+            "0x40780017fff7fff",
+            "0x1",
+            "0x208b7fff7fff7ffe",
             "0x208b7fff7fff7ffe",
             "0x20780017fff7ffd",
             "0x4",
@@ -75,21 +78,19 @@
             "0x1104800180018000",
             "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffde",
             "0x482680017ffd8000",
-            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffdc",
+            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffd9",
             "0x48307fff7ffe8000",
             "0x208b7fff7fff7ffe",
-            "0x482680017ffc8000",
-            "0x800000000000011000000000000000000000000000000000000000000000000",
-            "0x1104800180018000",
-            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffd7",
+            "0x40780017fff7fff",
+            "0x0",
             "0x480a7ff87fff8000",
-            "0x480280007ffd8000",
-            "0x480a7ffb7fff8000",
             "0x480280017ffd8000",
+            "0x480a7ffb7fff8000",
+            "0x480280027ffd8000",
             "0x482680017ffd8000",
-            "0x2",
+            "0x3",
             "0x1104800180018000",
-            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffd4",
+            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffd6",
             "0x48127ffd7fff8000",
             "0x480a7ff97fff8000",
             "0x480a7ffa7fff8000",
@@ -101,7 +102,7 @@
             "0x480a7ffc7fff8000",
             "0x480a7ffd7fff8000",
             "0x1104800180018000",
-            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffeb",
+            "0x800000000000010ffffffffffffffffffffffffffffffffffffffffffffffed",
             "0x40780017fff7fff",
             "0x1",
             "0x48127ffc7fff8000",
@@ -123,6 +124,53 @@
             "instruction_locations": {
                 "0": {
                     "accessible_scopes": [
+                        "starkware.cairo.common.alloc",
+                        "starkware.cairo.common.alloc.alloc"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [
+                        {
+                            "location": {
+                                "end_col": 38,
+                                "end_line": 3,
+                                "input_file": {
+                                    "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/cairo/common/alloc.cairo"
+                                },
+                                "start_col": 5,
+                                "start_line": 3
+                            },
+                            "n_prefix_newlines": 0
+                        }
+                    ],
+                    "inst": {
+                        "end_col": 12,
+                        "end_line": 4,
+                        "input_file": {
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/cairo/common/alloc.cairo"
+                        },
+                        "start_col": 5,
+                        "start_line": 4
+                    }
+                },
+                "2": {
+                    "accessible_scopes": [
+                        "starkware.cairo.common.alloc",
+                        "starkware.cairo.common.alloc.alloc"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 39,
+                        "end_line": 5,
+                        "input_file": {
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/cairo/common/alloc.cairo"
+                        },
+                        "start_col": 5,
+                        "start_line": 5
+                    }
+                },
+                "3": {
+                    "accessible_scopes": [
                         "starkware.cairo.lang.compiler.lib.registers",
                         "starkware.cairo.lang.compiler.lib.registers.get_fp_and_pc"
                     ],
@@ -138,7 +186,7 @@
                         "start_line": 6
                     }
                 },
-                "1": {
+                "4": {
                     "accessible_scopes": [
                         "starkware.cairo.common.math",
                         "starkware.cairo.common.math.assert_not_zero"
@@ -168,7 +216,7 @@
                         "start_line": 10
                     }
                 },
-                "3": {
+                "6": {
                     "accessible_scopes": [
                         "starkware.cairo.common.math",
                         "starkware.cairo.common.math.assert_not_zero"
@@ -185,7 +233,7 @@
                         "start_line": 12
                     }
                 },
-                "5": {
+                "8": {
                     "accessible_scopes": [
                         "starkware.cairo.common.math",
                         "starkware.cairo.common.math.assert_not_zero"
@@ -202,7 +250,7 @@
                         "start_line": 15
                     }
                 },
-                "6": {
+                "9": {
                     "accessible_scopes": [
                         "starkware.starknet.common.syscalls",
                         "starkware.starknet.common.syscalls.call_contract"
@@ -217,57 +265,6 @@
                         },
                         "start_col": 18,
                         "start_line": 47
-                    }
-                },
-                "8": {
-                    "accessible_scopes": [
-                        "starkware.starknet.common.syscalls",
-                        "starkware.starknet.common.syscalls.call_contract"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 27,
-                        "end_line": 51,
-                        "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
-                        },
-                        "start_col": 5,
-                        "start_line": 46
-                    }
-                },
-                "9": {
-                    "accessible_scopes": [
-                        "starkware.starknet.common.syscalls",
-                        "starkware.starknet.common.syscalls.call_contract"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 27,
-                        "end_line": 51,
-                        "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
-                        },
-                        "start_col": 5,
-                        "start_line": 46
-                    }
-                },
-                "10": {
-                    "accessible_scopes": [
-                        "starkware.starknet.common.syscalls",
-                        "starkware.starknet.common.syscalls.call_contract"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 27,
-                        "end_line": 51,
-                        "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
-                        },
-                        "start_col": 5,
-                        "start_line": 46
                     }
                 },
                 "11": {
@@ -305,6 +302,57 @@
                     }
                 },
                 "13": {
+                    "accessible_scopes": [
+                        "starkware.starknet.common.syscalls",
+                        "starkware.starknet.common.syscalls.call_contract"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 27,
+                        "end_line": 51,
+                        "input_file": {
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                        },
+                        "start_col": 5,
+                        "start_line": 46
+                    }
+                },
+                "14": {
+                    "accessible_scopes": [
+                        "starkware.starknet.common.syscalls",
+                        "starkware.starknet.common.syscalls.call_contract"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 27,
+                        "end_line": 51,
+                        "input_file": {
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                        },
+                        "start_col": 5,
+                        "start_line": 46
+                    }
+                },
+                "15": {
+                    "accessible_scopes": [
+                        "starkware.starknet.common.syscalls",
+                        "starkware.starknet.common.syscalls.call_contract"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 27,
+                        "end_line": 51,
+                        "input_file": {
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                        },
+                        "start_col": 5,
+                        "start_line": 46
+                    }
+                },
+                "16": {
                     "accessible_scopes": [
                         "starkware.starknet.common.syscalls",
                         "starkware.starknet.common.syscalls.call_contract"
@@ -358,7 +406,7 @@
                         "start_line": 55
                     }
                 },
-                "15": {
+                "18": {
                     "accessible_scopes": [
                         "starkware.starknet.common.syscalls",
                         "starkware.starknet.common.syscalls.call_contract"
@@ -375,7 +423,7 @@
                         "start_line": 56
                     }
                 },
-                "16": {
+                "19": {
                     "accessible_scopes": [
                         "starkware.starknet.common.syscalls",
                         "starkware.starknet.common.syscalls.call_contract"
@@ -392,7 +440,7 @@
                         "start_line": 56
                     }
                 },
-                "17": {
+                "20": {
                     "accessible_scopes": [
                         "starkware.starknet.common.syscalls",
                         "starkware.starknet.common.syscalls.call_contract"
@@ -409,7 +457,7 @@
                         "start_line": 56
                     }
                 },
-                "18": {
+                "21": {
                     "accessible_scopes": [
                         "starkware.cairo.common.invoke",
                         "starkware.cairo.common.invoke.invoke"
@@ -426,7 +474,7 @@
                         "start_line": 5
                     }
                 },
-                "19": {
+                "22": {
                     "accessible_scopes": [
                         "starkware.cairo.common.invoke",
                         "starkware.cairo.common.invoke.invoke"
@@ -455,7 +503,7 @@
                         "start_line": 4
                     }
                 },
-                "20": {
+                "23": {
                     "accessible_scopes": [
                         "starkware.cairo.common.invoke",
                         "starkware.cairo.common.invoke.invoke"
@@ -472,7 +520,7 @@
                         "start_line": 5
                     }
                 },
-                "22": {
+                "25": {
                     "accessible_scopes": [
                         "starkware.cairo.common.invoke",
                         "starkware.cairo.common.invoke.invoke"
@@ -489,7 +537,7 @@
                         "start_line": 6
                     }
                 },
-                "23": {
+                "26": {
                     "accessible_scopes": [
                         "starkware.cairo.common.invoke",
                         "starkware.cairo.common.invoke.invoke"
@@ -506,7 +554,7 @@
                         "start_line": 7
                     }
                 },
-                "24": {
+                "27": {
                     "accessible_scopes": [
                         "starkware.cairo.common.invoke",
                         "starkware.cairo.common.invoke.invoke_prepare_args"
@@ -523,7 +571,7 @@
                         "start_line": 14
                     }
                 },
-                "26": {
+                "29": {
                     "accessible_scopes": [
                         "starkware.cairo.common.invoke",
                         "starkware.cairo.common.invoke.invoke_prepare_args"
@@ -540,7 +588,7 @@
                         "start_line": 15
                     }
                 },
-                "27": {
+                "30": {
                     "accessible_scopes": [
                         "starkware.cairo.common.invoke",
                         "starkware.cairo.common.invoke.invoke_prepare_args"
@@ -557,7 +605,7 @@
                         "start_line": 18
                     }
                 },
-                "29": {
+                "32": {
                     "accessible_scopes": [
                         "starkware.cairo.common.invoke",
                         "starkware.cairo.common.invoke.invoke_prepare_args"
@@ -574,7 +622,7 @@
                         "start_line": 18
                     }
                 },
-                "31": {
+                "34": {
                     "accessible_scopes": [
                         "starkware.cairo.common.invoke",
                         "starkware.cairo.common.invoke.invoke_prepare_args"
@@ -591,7 +639,7 @@
                         "start_line": 18
                     }
                 },
-                "33": {
+                "36": {
                     "accessible_scopes": [
                         "starkware.cairo.common.invoke",
                         "starkware.cairo.common.invoke.invoke_prepare_args"
@@ -608,7 +656,7 @@
                         "start_line": 19
                     }
                 },
-                "34": {
+                "37": {
                     "accessible_scopes": [
                         "starkware.cairo.common.invoke",
                         "starkware.cairo.common.invoke.invoke_prepare_args"
@@ -625,7 +673,7 @@
                         "start_line": 20
                     }
                 },
-                "35": {
+                "38": {
                     "accessible_scopes": [
                         "starkware.cairo.common.registers",
                         "starkware.cairo.common.registers.get_label_location"
@@ -642,7 +690,7 @@
                         "start_line": 22
                     }
                 },
-                "37": {
+                "40": {
                     "accessible_scopes": [
                         "starkware.cairo.common.registers",
                         "starkware.cairo.common.registers.get_label_location"
@@ -659,7 +707,7 @@
                         "start_line": 25
                     }
                 },
-                "39": {
+                "42": {
                     "accessible_scopes": [
                         "starkware.cairo.common.registers",
                         "starkware.cairo.common.registers.get_label_location"
@@ -676,7 +724,7 @@
                         "start_line": 25
                     }
                 },
-                "40": {
+                "43": {
                     "accessible_scopes": [
                         "starkware.cairo.common.registers",
                         "starkware.cairo.common.registers.get_label_location"
@@ -693,7 +741,25 @@
                         "start_line": 25
                     }
                 },
-                "41": {
+                "44": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.__l1_default__"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 17,
+                        "end_line": 16,
+                        "input_file": {
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
+                        },
+                        "start_col": 5,
+                        "start_line": 16
+                    }
+                },
+                "46": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -704,57 +770,21 @@
                         {
                             "location": {
                                 "end_col": 7,
-                                "end_line": 18,
+                                "end_line": 21,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "start_col": 5,
-                                "start_line": 14
+                                "start_line": 17
                             },
                             "n_prefix_newlines": 1
                         }
                     ],
                     "inst": {
-                        "end_col": 38,
-                        "end_line": 19,
-                        "input_file": {
-                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
-                        },
-                        "start_col": 21,
-                        "start_line": 19
-                    }
-                },
-                "43": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.__l1_default__"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 39,
-                        "end_line": 19,
-                        "input_file": {
-                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
-                        },
-                        "start_col": 5,
-                        "start_line": 19
-                    }
-                },
-                "45": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.__l1_default__"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
                         "end_col": 40,
-                        "end_line": 11,
+                        "end_line": 12,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                         },
                         "parent_location": [
                             {
@@ -766,12 +796,12 @@
                                 "parent_location": [
                                     {
                                         "end_col": 6,
-                                        "end_line": 27,
+                                        "end_line": 29,
                                         "input_file": {
-                                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                         },
                                         "start_col": 5,
-                                        "start_line": 22
+                                        "start_line": 24
                                     },
                                     "While trying to retrieve the implicit argument 'syscall_ptr' in:"
                                 ],
@@ -781,25 +811,7 @@
                             "While expanding the reference 'syscall_ptr' in:"
                         ],
                         "start_col": 21,
-                        "start_line": 11
-                    }
-                },
-                "46": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.__l1_default__"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 37,
-                        "end_line": 23,
-                        "input_file": {
-                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
-                        },
-                        "start_col": 26,
-                        "start_line": 23
+                        "start_line": 12
                     }
                 },
                 "47": {
@@ -811,25 +823,13 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 20,
-                        "end_line": 12,
+                        "end_col": 37,
+                        "end_line": 25,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                         },
-                        "parent_location": [
-                            {
-                                "end_col": 35,
-                                "end_line": 24,
-                                "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
-                                },
-                                "start_col": 27,
-                                "start_line": 24
-                            },
-                            "While expanding the reference 'selector' in:"
-                        ],
-                        "start_col": 5,
-                        "start_line": 12
+                        "start_col": 26,
+                        "start_line": 25
                     }
                 },
                 "48": {
@@ -841,13 +841,25 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 34,
-                        "end_line": 25,
+                        "end_col": 20,
+                        "end_line": 13,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                         },
-                        "start_col": 23,
-                        "start_line": 25
+                        "parent_location": [
+                            {
+                                "end_col": 35,
+                                "end_line": 26,
+                                "input_file": {
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
+                                },
+                                "start_col": 27,
+                                "start_line": 26
+                            },
+                            "While expanding the reference 'selector' in:"
+                        ],
+                        "start_col": 5,
+                        "start_line": 13
                     }
                 },
                 "49": {
@@ -859,28 +871,46 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 50,
-                        "end_line": 20,
+                        "end_col": 34,
+                        "end_line": 27,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
+                        },
+                        "start_col": 23,
+                        "start_line": 27
+                    }
+                },
+                "50": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.__l1_default__"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 50,
+                        "end_line": 22,
+                        "input_file": {
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 36,
-                                "end_line": 26,
+                                "end_line": 28,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "start_col": 18,
-                                "start_line": 26
+                                "start_line": 28
                             },
                             "While expanding the reference 'function_arguments' in:"
                         ],
                         "start_col": 38,
-                        "start_line": 20
+                        "start_line": 22
                     }
                 },
-                "51": {
+                "52": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -890,15 +920,15 @@
                     "hints": [],
                     "inst": {
                         "end_col": 6,
-                        "end_line": 27,
+                        "end_line": 29,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                         },
                         "start_col": 5,
-                        "start_line": 22
+                        "start_line": 24
                     }
                 },
-                "53": {
+                "54": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -915,83 +945,41 @@
                         "parent_location": [
                             {
                                 "end_col": 6,
-                                "end_line": 27,
+                                "end_line": 29,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 40,
-                                        "end_line": 11,
+                                        "end_line": 12,
                                         "input_file": {
-                                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 14,
-                                                "end_line": 28,
+                                                "end_line": 30,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                                 },
                                                 "start_col": 5,
-                                                "start_line": 28
+                                                "start_line": 30
                                             },
                                             "While trying to retrieve the implicit argument 'syscall_ptr' in:"
                                         ],
                                         "start_col": 21,
-                                        "start_line": 11
+                                        "start_line": 12
                                     },
                                     "While expanding the reference 'syscall_ptr' in:"
                                 ],
                                 "start_col": 5,
-                                "start_line": 22
+                                "start_line": 24
                             },
                             "While trying to update the implicit return value 'syscall_ptr' in:"
                         ],
                         "start_col": 20,
                         "start_line": 42
-                    }
-                },
-                "54": {
-                    "accessible_scopes": [
-                        "__main__",
-                        "__main__",
-                        "__main__.__l1_default__"
-                    ],
-                    "flow_tracking_data": null,
-                    "hints": [],
-                    "inst": {
-                        "end_col": 69,
-                        "end_line": 11,
-                        "input_file": {
-                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
-                        },
-                        "parent_location": [
-                            {
-                                "end_col": 69,
-                                "end_line": 11,
-                                "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
-                                },
-                                "parent_location": [
-                                    {
-                                        "end_col": 14,
-                                        "end_line": 28,
-                                        "input_file": {
-                                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
-                                        },
-                                        "start_col": 5,
-                                        "start_line": 28
-                                    },
-                                    "While trying to retrieve the implicit argument 'pedersen_ptr' in:"
-                                ],
-                                "start_col": 42,
-                                "start_line": 11
-                            },
-                            "While expanding the reference 'pedersen_ptr' in:"
-                        ],
-                        "start_col": 42,
-                        "start_line": 11
                     }
                 },
                 "55": {
@@ -1003,37 +991,37 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 93,
-                        "end_line": 11,
+                        "end_col": 69,
+                        "end_line": 12,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 93,
-                                "end_line": 11,
+                                "end_col": 69,
+                                "end_line": 12,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 14,
-                                        "end_line": 28,
+                                        "end_line": 30,
                                         "input_file": {
-                                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                         },
                                         "start_col": 5,
-                                        "start_line": 28
+                                        "start_line": 30
                                     },
-                                    "While trying to retrieve the implicit argument 'range_check_ptr' in:"
+                                    "While trying to retrieve the implicit argument 'pedersen_ptr' in:"
                                 ],
-                                "start_col": 71,
-                                "start_line": 11
+                                "start_col": 42,
+                                "start_line": 12
                             },
-                            "While expanding the reference 'range_check_ptr' in:"
+                            "While expanding the reference 'pedersen_ptr' in:"
                         ],
-                        "start_col": 71,
-                        "start_line": 11
+                        "start_col": 42,
+                        "start_line": 12
                     }
                 },
                 "56": {
@@ -1045,16 +1033,58 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 14,
-                        "end_line": 28,
+                        "end_col": 93,
+                        "end_line": 12,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                         },
-                        "start_col": 5,
-                        "start_line": 28
+                        "parent_location": [
+                            {
+                                "end_col": 93,
+                                "end_line": 12,
+                                "input_file": {
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
+                                },
+                                "parent_location": [
+                                    {
+                                        "end_col": 14,
+                                        "end_line": 30,
+                                        "input_file": {
+                                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
+                                        },
+                                        "start_col": 5,
+                                        "start_line": 30
+                                    },
+                                    "While trying to retrieve the implicit argument 'range_check_ptr' in:"
+                                ],
+                                "start_col": 71,
+                                "start_line": 12
+                            },
+                            "While expanding the reference 'range_check_ptr' in:"
+                        ],
+                        "start_col": 71,
+                        "start_line": 12
                     }
                 },
                 "57": {
+                    "accessible_scopes": [
+                        "__main__",
+                        "__main__",
+                        "__main__.__l1_default__"
+                    ],
+                    "flow_tracking_data": null,
+                    "hints": [],
+                    "inst": {
+                        "end_col": 14,
+                        "end_line": 30,
+                        "input_file": {
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
+                        },
+                        "start_col": 5,
+                        "start_line": 30
+                    }
+                },
+                "58": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -1072,9 +1102,9 @@
                         "parent_location": [
                             {
                                 "end_col": 40,
-                                "end_line": 11,
+                                "end_line": 12,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "parent_location": [
                                     {
@@ -1086,12 +1116,12 @@
                                         "parent_location": [
                                             {
                                                 "end_col": 20,
-                                                "end_line": 11,
+                                                "end_line": 12,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 11
+                                                "start_line": 12
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -1101,7 +1131,7 @@
                                     "While expanding the reference 'syscall_ptr' in:"
                                 ],
                                 "start_col": 21,
-                                "start_line": 11
+                                "start_line": 12
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1109,7 +1139,7 @@
                         "start_line": 1
                     }
                 },
-                "58": {
+                "59": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -1127,9 +1157,9 @@
                         "parent_location": [
                             {
                                 "end_col": 69,
-                                "end_line": 11,
+                                "end_line": 12,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "parent_location": [
                                     {
@@ -1141,12 +1171,12 @@
                                         "parent_location": [
                                             {
                                                 "end_col": 20,
-                                                "end_line": 11,
+                                                "end_line": 12,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 11
+                                                "start_line": 12
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -1156,7 +1186,7 @@
                                     "While expanding the reference 'pedersen_ptr' in:"
                                 ],
                                 "start_col": 42,
-                                "start_line": 11
+                                "start_line": 12
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1164,7 +1194,7 @@
                         "start_line": 1
                     }
                 },
-                "59": {
+                "60": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -1182,9 +1212,9 @@
                         "parent_location": [
                             {
                                 "end_col": 93,
-                                "end_line": 11,
+                                "end_line": 12,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "parent_location": [
                                     {
@@ -1196,12 +1226,12 @@
                                         "parent_location": [
                                             {
                                                 "end_col": 20,
-                                                "end_line": 11,
+                                                "end_line": 12,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 11
+                                                "start_line": 12
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -1211,7 +1241,7 @@
                                     "While expanding the reference 'range_check_ptr' in:"
                                 ],
                                 "start_col": 71,
-                                "start_line": 11
+                                "start_line": 12
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1219,7 +1249,7 @@
                         "start_line": 1
                     }
                 },
-                "60": {
+                "61": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -1237,12 +1267,12 @@
                         "parent_location": [
                             {
                                 "end_col": 20,
-                                "end_line": 11,
+                                "end_line": 12,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "start_col": 6,
-                                "start_line": 11
+                                "start_line": 12
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1250,7 +1280,7 @@
                         "start_line": 1
                     }
                 },
-                "61": {
+                "62": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -1268,12 +1298,12 @@
                         "parent_location": [
                             {
                                 "end_col": 20,
-                                "end_line": 11,
+                                "end_line": 12,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "start_col": 6,
-                                "start_line": 11
+                                "start_line": 12
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1281,7 +1311,7 @@
                         "start_line": 1
                     }
                 },
-                "62": {
+                "63": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -1299,12 +1329,12 @@
                         "parent_location": [
                             {
                                 "end_col": 20,
-                                "end_line": 11,
+                                "end_line": 12,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "start_col": 6,
-                                "start_line": 11
+                                "start_line": 12
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1312,7 +1342,7 @@
                         "start_line": 1
                     }
                 },
-                "63": {
+                "64": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -1323,15 +1353,15 @@
                     "hints": [],
                     "inst": {
                         "end_col": 20,
-                        "end_line": 11,
+                        "end_line": 12,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                         },
                         "start_col": 6,
-                        "start_line": 11
+                        "start_line": 12
                     }
                 },
-                "65": {
+                "66": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -1350,12 +1380,12 @@
                                 "parent_location": [
                                     {
                                         "end_col": 20,
-                                        "end_line": 11,
+                                        "end_line": 12,
                                         "input_file": {
-                                            "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                         },
                                         "start_col": 6,
-                                        "start_line": 11
+                                        "start_line": 12
                                     },
                                     "While constructing the external wrapper for:"
                                 ],
@@ -1374,12 +1404,12 @@
                         "parent_location": [
                             {
                                 "end_col": 20,
-                                "end_line": 11,
+                                "end_line": 12,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "start_col": 6,
-                                "start_line": 11
+                                "start_line": 12
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1387,7 +1417,7 @@
                         "start_line": 3
                     }
                 },
-                "67": {
+                "68": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -1405,9 +1435,9 @@
                         "parent_location": [
                             {
                                 "end_col": 20,
-                                "end_line": 11,
+                                "end_line": 12,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "parent_location": [
                                     {
@@ -1419,12 +1449,12 @@
                                         "parent_location": [
                                             {
                                                 "end_col": 20,
-                                                "end_line": 11,
+                                                "end_line": 12,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 11
+                                                "start_line": 12
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -1434,7 +1464,7 @@
                                     "While expanding the reference 'syscall_ptr' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 11
+                                "start_line": 12
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1442,7 +1472,7 @@
                         "start_line": 1
                     }
                 },
-                "68": {
+                "69": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -1460,9 +1490,9 @@
                         "parent_location": [
                             {
                                 "end_col": 20,
-                                "end_line": 11,
+                                "end_line": 12,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "parent_location": [
                                     {
@@ -1474,12 +1504,12 @@
                                         "parent_location": [
                                             {
                                                 "end_col": 20,
-                                                "end_line": 11,
+                                                "end_line": 12,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 11
+                                                "start_line": 12
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -1489,7 +1519,7 @@
                                     "While expanding the reference 'pedersen_ptr' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 11
+                                "start_line": 12
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1497,7 +1527,7 @@
                         "start_line": 1
                     }
                 },
-                "69": {
+                "70": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -1515,9 +1545,9 @@
                         "parent_location": [
                             {
                                 "end_col": 20,
-                                "end_line": 11,
+                                "end_line": 12,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "parent_location": [
                                     {
@@ -1529,12 +1559,12 @@
                                         "parent_location": [
                                             {
                                                 "end_col": 20,
-                                                "end_line": 11,
+                                                "end_line": 12,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 11
+                                                "start_line": 12
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -1544,7 +1574,7 @@
                                     "While expanding the reference 'range_check_ptr' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 11
+                                "start_line": 12
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1552,7 +1582,7 @@
                         "start_line": 1
                     }
                 },
-                "70": {
+                "71": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -1570,9 +1600,9 @@
                         "parent_location": [
                             {
                                 "end_col": 20,
-                                "end_line": 11,
+                                "end_line": 12,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "parent_location": [
                                     {
@@ -1584,12 +1614,12 @@
                                         "parent_location": [
                                             {
                                                 "end_col": 20,
-                                                "end_line": 11,
+                                                "end_line": 12,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 11
+                                                "start_line": 12
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -1599,7 +1629,7 @@
                                     "While expanding the reference 'retdata_size' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 11
+                                "start_line": 12
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1607,7 +1637,7 @@
                         "start_line": 4
                     }
                 },
-                "72": {
+                "73": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -1625,9 +1655,9 @@
                         "parent_location": [
                             {
                                 "end_col": 20,
-                                "end_line": 11,
+                                "end_line": 12,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "parent_location": [
                                     {
@@ -1639,12 +1669,12 @@
                                         "parent_location": [
                                             {
                                                 "end_col": 20,
-                                                "end_line": 11,
+                                                "end_line": 12,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 11
+                                                "start_line": 12
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -1654,7 +1684,7 @@
                                     "While expanding the reference 'retdata' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 11
+                                "start_line": 12
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1662,7 +1692,7 @@
                         "start_line": 3
                     }
                 },
-                "73": {
+                "74": {
                     "accessible_scopes": [
                         "__main__",
                         "__main__",
@@ -1680,12 +1710,12 @@
                         "parent_location": [
                             {
                                 "end_col": 20,
-                                "end_line": 11,
+                                "end_line": 12,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/mock-governance/contracts/l2/StarknetBridgeExecutor.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/StarknetBridgeExecutor.cairo"
                                 },
                                 "start_col": 6,
-                                "start_line": 11
+                                "start_line": 12
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1696,7 +1726,23 @@
             }
         },
         "hints": {
-            "1": [
+            "0": [
+                {
+                    "accessible_scopes": [
+                        "starkware.cairo.common.alloc",
+                        "starkware.cairo.common.alloc.alloc"
+                    ],
+                    "code": "memory[ap] = segments.add()",
+                    "flow_tracking_data": {
+                        "ap_tracking": {
+                            "group": 0,
+                            "offset": 0
+                        },
+                        "reference_ids": {}
+                    }
+                }
+            ],
+            "4": [
                 {
                     "accessible_scopes": [
                         "starkware.cairo.common.math",
@@ -1705,7 +1751,7 @@
                     "code": "from starkware.cairo.common.math_utils import assert_integer\nassert_integer(ids.value)\nassert ids.value % PRIME != 0, f'assert_not_zero failed: {ids.value} = 0.'",
                     "flow_tracking_data": {
                         "ap_tracking": {
-                            "group": 1,
+                            "group": 2,
                             "offset": 0
                         },
                         "reference_ids": {
@@ -1714,7 +1760,7 @@
                     }
                 }
             ],
-            "13": [
+            "16": [
                 {
                     "accessible_scopes": [
                         "starkware.starknet.common.syscalls",
@@ -1723,7 +1769,7 @@
                     "code": "syscall_handler.call_contract(segments=segments, syscall_ptr=ids.syscall_ptr)",
                     "flow_tracking_data": {
                         "ap_tracking": {
-                            "group": 2,
+                            "group": 3,
                             "offset": 1
                         },
                         "reference_ids": {
@@ -1732,7 +1778,7 @@
                     }
                 }
             ],
-            "41": [
+            "46": [
                 {
                     "accessible_scopes": [
                         "__main__",
@@ -1742,7 +1788,7 @@
                     "code": "print(\"message received\")\nprint(ids.selector)\nprint(ids.calldata_size)",
                     "flow_tracking_data": {
                         "ap_tracking": {
-                            "group": 9,
+                            "group": 10,
                             "offset": 0
                         },
                         "reference_ids": {
@@ -1752,7 +1798,7 @@
                     }
                 }
             ],
-            "65": [
+            "66": [
                 {
                     "accessible_scopes": [
                         "__main__",
@@ -1763,8 +1809,8 @@
                     "code": "memory[ap] = segments.add()",
                     "flow_tracking_data": {
                         "ap_tracking": {
-                            "group": 10,
-                            "offset": 25
+                            "group": 11,
+                            "offset": 22
                         },
                         "reference_ids": {}
                     }
@@ -1781,7 +1827,7 @@
                     "l1_handler",
                     "raw_input"
                 ],
-                "pc": 41,
+                "pc": 44,
                 "type": "function"
             },
             "__main__.__l1_default__.Args": {
@@ -1836,10 +1882,10 @@
                 "references": [
                     {
                         "ap_tracking_data": {
-                            "group": 9,
+                            "group": 10,
                             "offset": 0
                         },
-                        "pc": 41,
+                        "pc": 44,
                         "value": "[cast(fp + (-4), felt*)]"
                     }
                 ],
@@ -1851,14 +1897,18 @@
                 "references": [
                     {
                         "ap_tracking_data": {
-                            "group": 9,
+                            "group": 10,
                             "offset": 0
                         },
-                        "pc": 41,
+                        "pc": 44,
                         "value": "[cast(fp + (-5), felt*)]"
                     }
                 ],
                 "type": "reference"
+            },
+            "__main__.alloc": {
+                "destination": "starkware.cairo.common.alloc.alloc",
+                "type": "alias"
             },
             "__main__.assert_not_zero": {
                 "destination": "starkware.cairo.common.math.assert_not_zero",
@@ -1881,7 +1931,7 @@
                     "l1_handler",
                     "raw_input"
                 ],
-                "pc": 57,
+                "pc": 58,
                 "type": "function"
             },
             "__wrappers__.__l1_default__.Args": {
@@ -1911,6 +1961,31 @@
             "__wrappers__.__l1_default___encode_return.memcpy": {
                 "destination": "starkware.cairo.common.memcpy.memcpy",
                 "type": "alias"
+            },
+            "starkware.cairo.common.alloc.alloc": {
+                "decorators": [],
+                "pc": 0,
+                "type": "function"
+            },
+            "starkware.cairo.common.alloc.alloc.Args": {
+                "full_name": "starkware.cairo.common.alloc.alloc.Args",
+                "members": {},
+                "size": 0,
+                "type": "struct"
+            },
+            "starkware.cairo.common.alloc.alloc.ImplicitArgs": {
+                "full_name": "starkware.cairo.common.alloc.alloc.ImplicitArgs",
+                "members": {},
+                "size": 0,
+                "type": "struct"
+            },
+            "starkware.cairo.common.alloc.alloc.Return": {
+                "cairo_type": "(ptr : felt*)",
+                "type": "type_definition"
+            },
+            "starkware.cairo.common.alloc.alloc.SIZEOF_LOCALS": {
+                "type": "const",
+                "value": 0
             },
             "starkware.cairo.common.cairo_builtins.BitwiseBuiltin": {
                 "full_name": "starkware.cairo.common.cairo_builtins.BitwiseBuiltin",
@@ -2040,7 +2115,7 @@
             },
             "starkware.cairo.common.invoke.invoke": {
                 "decorators": [],
-                "pc": 18,
+                "pc": 21,
                 "type": "function"
             },
             "starkware.cairo.common.invoke.invoke.Args": {
@@ -2078,7 +2153,7 @@
             },
             "starkware.cairo.common.invoke.invoke_prepare_args": {
                 "decorators": [],
-                "pc": 24,
+                "pc": 27,
                 "type": "function"
             },
             "starkware.cairo.common.invoke.invoke_prepare_args.Args": {
@@ -2112,7 +2187,7 @@
             },
             "starkware.cairo.common.math.assert_not_zero": {
                 "decorators": [],
-                "pc": 1,
+                "pc": 4,
                 "type": "function"
             },
             "starkware.cairo.common.math.assert_not_zero.Args": {
@@ -2146,10 +2221,10 @@
                 "references": [
                     {
                         "ap_tracking_data": {
-                            "group": 1,
+                            "group": 2,
                             "offset": 0
                         },
-                        "pc": 1,
+                        "pc": 4,
                         "value": "[cast(fp + (-3), felt*)]"
                     }
                 ],
@@ -2165,7 +2240,7 @@
             },
             "starkware.cairo.common.registers.get_label_location": {
                 "decorators": [],
-                "pc": 35,
+                "pc": 38,
                 "type": "function"
             },
             "starkware.cairo.common.registers.get_label_location.Args": {
@@ -2194,12 +2269,12 @@
                 "value": 0
             },
             "starkware.cairo.common.registers.get_label_location.ret_pc_label": {
-                "pc": 37,
+                "pc": 40,
                 "type": "label"
             },
             "starkware.cairo.lang.compiler.lib.registers.get_fp_and_pc": {
                 "decorators": [],
-                "pc": 0,
+                "pc": 3,
                 "type": "function"
             },
             "starkware.cairo.lang.compiler.lib.registers.get_fp_and_pc.Args": {
@@ -2880,7 +2955,7 @@
             },
             "starkware.starknet.common.syscalls.call_contract": {
                 "decorators": [],
-                "pc": 6,
+                "pc": 9,
                 "type": "function"
             },
             "starkware.starknet.common.syscalls.call_contract.Args": {
@@ -2931,18 +3006,18 @@
                 "references": [
                     {
                         "ap_tracking_data": {
-                            "group": 2,
+                            "group": 3,
                             "offset": 0
                         },
-                        "pc": 6,
+                        "pc": 9,
                         "value": "[cast(fp + (-7), felt**)]"
                     },
                     {
                         "ap_tracking_data": {
-                            "group": 2,
+                            "group": 3,
                             "offset": 1
                         },
-                        "pc": 13,
+                        "pc": 16,
                         "value": "cast([fp + (-7)] + 7, felt*)"
                     }
                 ],
@@ -2955,34 +3030,34 @@
             "references": [
                 {
                     "ap_tracking_data": {
-                        "group": 1,
+                        "group": 2,
                         "offset": 0
                     },
-                    "pc": 1,
+                    "pc": 4,
                     "value": "[cast(fp + (-3), felt*)]"
                 },
                 {
                     "ap_tracking_data": {
-                        "group": 2,
+                        "group": 3,
                         "offset": 0
                     },
-                    "pc": 6,
+                    "pc": 9,
                     "value": "[cast(fp + (-7), felt**)]"
                 },
                 {
                     "ap_tracking_data": {
-                        "group": 9,
+                        "group": 10,
                         "offset": 0
                     },
-                    "pc": 41,
+                    "pc": 44,
                     "value": "[cast(fp + (-5), felt*)]"
                 },
                 {
                     "ap_tracking_data": {
-                        "group": 9,
+                        "group": 10,
                         "offset": 0
                     },
-                    "pc": 41,
+                    "pc": 44,
                     "value": "[cast(fp + (-4), felt*)]"
                 }
             ]

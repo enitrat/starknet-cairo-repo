@@ -2,7 +2,7 @@
   "scripts": {
     "test": "hardhat --network localhost test",
     "testnet:l2": "starknet-devnet --host 0.0.0.0 --lite-mode",
-    "testnet:l1": "source .env && yarn ganache --fork https://eth-mainnet.alchemyapi.io/v2/$ALCHEMY_KEY@$BLOCK_NUMBER --gasPrice 2000000000000 -u $DAI_WHALE -u $USDC_WHALE -u $STKAAVE_WHALE -u $EMISSION_MANAGER",
+    "testnet:l1": "source .env && yarn ganache --fork https://eth-mainnet.alchemyapi.io/v2/$ALCHEMY_KEY@$BLOCK_NUMBER --gasPrice 2000000000000",
     "lint:check": "npx prettier --check . && find contracts/ -iname '*.cairo' -exec .venv/bin/cairo-format -c {} +",
     "lint:fix": "npx prettier --write . && find contracts/ -iname '*.cairo' -exec .venv/bin/cairo-format -i {} +",
     "compile:l1": "hardhat compile",

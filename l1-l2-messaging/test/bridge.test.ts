@@ -66,22 +66,22 @@ describe("Greeter", function () {
     ).toString();
     const _l2Bridge = (await l1Bridge._l2Bridge()).toString();
 
+    const exp1 = number.toBN(l1Bridge.address.toString()).toString();
     const exp2 = number.toBN(l2Balance.address).toString();
     const exp3 = number.toBN(l2Bridge.address).toString();
+
 
     expect(_msg_address).to.equal(mockStarknetMessagingAddress);
     expect(_targetContract).to.equal(exp2);
     expect(_l2Bridge).to.equal(exp3);
     const txBridge = await l1Bridge.connect(l1user).setCounter(3);
-    console.log("here");
 
     const blockNum = txBridge.blockNumber;
 
-    // const flushL1Response = await starknet.devnet.flush();
-    // const flushL1Messages = flushL1Response.consumed_messages.from_l1;
-    // console.log(flushL1Messages);
+    const flushL1Response = await starknet.devnet.flush();
+    const flushL1Messages = flushL1Response.consumed_messages.from_l1;
 
-    const res = await l2Balance.call("get_counter");
-    console.log(res);
+    const { res } = await l2Balance.call("get_counter");
+    expect(res).to.equal(3n);
   });
 });
