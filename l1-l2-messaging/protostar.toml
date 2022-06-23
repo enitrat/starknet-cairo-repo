@@ -1,0 +1,15 @@
+["protostar.config"]
+protostar_version = "0.2.3"
+
+["protostar.project"]
+libs_path = "lib"
+
+["protostar.contracts"]
+starknet_bridge_executor = [
+    "./src/starknet_bridge_executor.cairo",
+]
+
+[profile.ci.protostar.shared_command_configs]
+no_color=true
+
+target = "tests_protostar"

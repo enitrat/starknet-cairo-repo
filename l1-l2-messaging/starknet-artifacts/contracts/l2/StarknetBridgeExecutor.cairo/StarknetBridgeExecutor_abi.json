@@ -1,0 +1,21 @@
+[
+    {
+        "inputs": [
+            {
+                "name": "selector",
+                "type": "felt"
+            },
+            {
+                "name": "calldata_size",
+                "type": "felt"
+            },
+            {
+                "name": "calldata",
+                "type": "felt*"
+            }
+        ],
+        "name": "__l1_default__",
+        "outputs": [],
+        "type": "l1_handler"
+    }
+]

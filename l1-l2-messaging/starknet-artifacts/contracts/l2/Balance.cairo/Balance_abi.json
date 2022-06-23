@@ -1,0 +1,25 @@
+[
+    {
+        "inputs": [
+            {
+                "name": "value",
+                "type": "felt"
+            }
+        ],
+        "name": "set_counter",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "get_counter",
+        "outputs": [
+            {
+                "name": "res",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
