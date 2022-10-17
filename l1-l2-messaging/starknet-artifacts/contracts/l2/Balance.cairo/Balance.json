@@ -44,6 +44,7 @@
             "pedersen",
             "range_check"
         ],
+        "compiler_version": "0.10.0",
         "data": [
             "0x480680017fff8000",
             "0x53746f7261676552656164",
@@ -149,23 +150,23 @@
         ],
         "debug_info": {
             "file_contents": {
-                "autogen/starknet/arg_processor/1b562308a65653425ce06491fa4b4539466f3251a07e73e099d0afe86a48900e.cairo": "assert [cast(fp + (-4), felt*)] = __calldata_actual_size\n",
-                "autogen/starknet/arg_processor/5e1cc73f0b484f90bb02da164d88332b40c6f698801aa4d3c603dab22157e902.cairo": "let __calldata_actual_size =  __calldata_ptr - cast([cast(fp + (-3), felt**)], felt*)\n",
-                "autogen/starknet/arg_processor/a46542dc358872d57a2d9f424e61d9b07a0e4c72f24e3645022494cebfb47c83.cairo": "assert [__return_value_ptr] = ret_value.res\nlet __return_value_ptr = __return_value_ptr + 1\n",
-                "autogen/starknet/arg_processor/fc42d727d94c768e43778d12b1fd9241d795ce55b227b746a3ae311d5894c21a.cairo": "let __calldata_arg_value = [__calldata_ptr]\nlet __calldata_ptr = __calldata_ptr + 1\n",
-                "autogen/starknet/external/get_counter/424b26e79f70343cc02557f1fbd25745138efb26a3dc5c8b593ca765b73138b7.cairo": "let pedersen_ptr = [cast([cast(fp + (-5), felt**)] + 1, starkware.cairo.common.cairo_builtins.HashBuiltin**)]\n",
-                "autogen/starknet/external/get_counter/4ba2b119ceb30fe10f4cca3c9d73ef620c0fb5eece91b99a99d71217bba1001c.cairo": "return (syscall_ptr,pedersen_ptr,range_check_ptr,retdata_size,retdata)\n",
-                "autogen/starknet/external/get_counter/c15deeadf6d1d88c57c7df96340cd60ac523be75512216e3db264ace7b0f6f05.cairo": "let ret_value = __wrapped_func{syscall_ptr=syscall_ptr, pedersen_ptr=pedersen_ptr, range_check_ptr=range_check_ptr}()\nlet (range_check_ptr, retdata_size, retdata) = get_counter_encode_return(ret_value, range_check_ptr)\n",
-                "autogen/starknet/external/get_counter/c7060df96cb0acca1380ae43bf758cab727bfdf73cb5d34a93e24a9742817fda.cairo": "let syscall_ptr = [cast([cast(fp + (-5), felt**)] + 0, felt**)]\n",
-                "autogen/starknet/external/get_counter/e651458745e7cd218121c342e0915890767e2f59ddc2e315b8844ad0f47d582e.cairo": "let range_check_ptr = [cast([cast(fp + (-5), felt**)] + 2, felt*)]\n",
-                "autogen/starknet/external/return/get_counter/ac8075b86cf991864ecaffe3e052319c4c84c8a8fe9deaea1aef3d7f70e0af0a.cairo": "func get_counter_encode_return(ret_value : (res : felt), range_check_ptr) -> (\n        range_check_ptr, data_len : felt, data : felt*):\n    %{ memory[ap] = segments.add() %}\n    alloc_locals\n    local __return_value_ptr_start : felt*\n    let __return_value_ptr = __return_value_ptr_start\n    with range_check_ptr:\n    end\n    return (\n        range_check_ptr=range_check_ptr,\n        data_len=__return_value_ptr - __return_value_ptr_start,\n        data=__return_value_ptr_start)\nend\n",
-                "autogen/starknet/external/set_counter/424b26e79f70343cc02557f1fbd25745138efb26a3dc5c8b593ca765b73138b7.cairo": "let pedersen_ptr = [cast([cast(fp + (-5), felt**)] + 1, starkware.cairo.common.cairo_builtins.HashBuiltin**)]\n",
-                "autogen/starknet/external/set_counter/4ba2b119ceb30fe10f4cca3c9d73ef620c0fb5eece91b99a99d71217bba1001c.cairo": "return (syscall_ptr,pedersen_ptr,range_check_ptr,retdata_size,retdata)\n",
-                "autogen/starknet/external/set_counter/c7060df96cb0acca1380ae43bf758cab727bfdf73cb5d34a93e24a9742817fda.cairo": "let syscall_ptr = [cast([cast(fp + (-5), felt**)] + 0, felt**)]\n",
-                "autogen/starknet/external/set_counter/dba7eaed647380015af923385160552bb0502d1f8d7db2d4fd0142bd2f14519c.cairo": "let ret_value = __wrapped_func{syscall_ptr=syscall_ptr, pedersen_ptr=pedersen_ptr, range_check_ptr=range_check_ptr}(value=__calldata_arg_value,)\n%{ memory[ap] = segments.add() %}        # Allocate memory for return value.\ntempvar retdata : felt*\nlet retdata_size = 0\n",
-                "autogen/starknet/external/set_counter/e651458745e7cd218121c342e0915890767e2f59ddc2e315b8844ad0f47d582e.cairo": "let range_check_ptr = [cast([cast(fp + (-5), felt**)] + 2, felt*)]\n",
-                "autogen/starknet/storage_var/counter/decl.cairo": "namespace counter:\n    from starkware.starknet.common.storage import normalize_address\n    from starkware.starknet.common.syscalls import storage_read, storage_write\n    from starkware.cairo.common.cairo_builtins import HashBuiltin\n    from starkware.cairo.common.hash import hash2\n\n    func addr{pedersen_ptr : HashBuiltin*, range_check_ptr}() -> (res : felt):\n        let res = 0\n        call hash2\n        call normalize_address\n    end\n\n    func read{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}() -> (res : felt):\n        let storage_addr = 0\n        call addr\n        call storage_read\n    end\n\n    func write{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}(value : felt):\n        let storage_addr = 0\n        call addr\n        call storage_write\n    end\nend",
-                "autogen/starknet/storage_var/counter/impl.cairo": "namespace counter:\n    from starkware.starknet.common.storage import normalize_address\n    from starkware.starknet.common.syscalls import storage_read, storage_write\n    from starkware.cairo.common.cairo_builtins import HashBuiltin\n    from starkware.cairo.common.hash import hash2\n\n    func addr{pedersen_ptr : HashBuiltin*, range_check_ptr}() -> (res : felt):\n        let res = 223925651276572801467025322450506123433664924558092583619131301620304795732\n        return (res=res)\n    end\n\n    func read{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}() -> (res : felt):\n        let (storage_addr) = addr()\n        let (__storage_var_temp0) = storage_read(address=storage_addr + 0)\n\n        tempvar syscall_ptr = syscall_ptr\n        tempvar pedersen_ptr = pedersen_ptr\n        tempvar range_check_ptr = range_check_ptr\n        tempvar __storage_var_temp0 : felt = __storage_var_temp0\n        return ([cast(&__storage_var_temp0, felt*)])\n    end\n\n    func write{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}(value : felt):\n        let (storage_addr) = addr()\n        storage_write(address=storage_addr + 0, value=[cast(&value, felt) + 0])\n        return ()\n    end\nend"
+                "autogen/starknet/arg_processor/01cba52f8515996bb9d7070bde81ff39281d096d7024a558efcba6e1fd2402cf.cairo": "assert [cast(fp + (-4), felt*)] = __calldata_actual_size;\n",
+                "autogen/starknet/arg_processor/293368f3a0e12cfcf22314a31e13b9801e95a5b8b2b71822a2fbbdf5a01ea795.cairo": "assert [__return_value_ptr] = ret_value.res;\nlet __return_value_ptr = __return_value_ptr + 1;\n",
+                "autogen/starknet/arg_processor/3e93b8906c329e7a5c33e020ce7a5a9c542c4444955be98eec5fcbef545a8662.cairo": "let __calldata_arg_value = [__calldata_ptr];\nlet __calldata_ptr = __calldata_ptr + 1;\n",
+                "autogen/starknet/arg_processor/c31620b02d4d706f0542c989b2aadc01b0981d1f6a5933a8fe4937ace3d70d92.cairo": "let __calldata_actual_size =  __calldata_ptr - cast([cast(fp + (-3), felt**)], felt*);\n",
+                "autogen/starknet/external/get_counter/5b2c763453f6c596f8b3a2290aac25647596fd7ef6915d7fbba58ad01f434d2b.cairo": "let ret_value = __wrapped_func{syscall_ptr=syscall_ptr, pedersen_ptr=pedersen_ptr, range_check_ptr=range_check_ptr}();\nlet (range_check_ptr, retdata_size, retdata) = get_counter_encode_return(ret_value, range_check_ptr);\n",
+                "autogen/starknet/external/get_counter/741ea357d6336b0bed7bf0472425acd0311d543883b803388880e60a232040c7.cairo": "let range_check_ptr = [cast([cast(fp + (-5), felt**)] + 2, felt*)];\n",
+                "autogen/starknet/external/get_counter/9684a85e93c782014ca14293edea4eb2502039a5a7b6538ecd39c56faaf12529.cairo": "let pedersen_ptr = [cast([cast(fp + (-5), felt**)] + 1, starkware.cairo.common.cairo_builtins.HashBuiltin**)];\n",
+                "autogen/starknet/external/get_counter/b2c52ca2d2a8fc8791a983086d8716c5eacd0c3d62934914d2286f84b98ff4cb.cairo": "let syscall_ptr = [cast([cast(fp + (-5), felt**)] + 0, felt**)];\n",
+                "autogen/starknet/external/get_counter/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo": "return (syscall_ptr,pedersen_ptr,range_check_ptr,retdata_size,retdata);\n",
+                "autogen/starknet/external/return/get_counter/53d22414b0ca7152cf22c21072cf07a973affc5d98fee84dc31553f03638b74f.cairo": "func get_counter_encode_return(ret_value: (res: felt), range_check_ptr) -> (\n        range_check_ptr: felt, data_len: felt, data: felt*) {\n    %{ memory[ap] = segments.add() %}\n    alloc_locals;\n    local __return_value_ptr_start: felt*;\n    let __return_value_ptr = __return_value_ptr_start;\n    with range_check_ptr {\n    }\n    return (\n        range_check_ptr=range_check_ptr,\n        data_len=__return_value_ptr - __return_value_ptr_start,\n        data=__return_value_ptr_start);\n}\n",
+                "autogen/starknet/external/set_counter/4c302f52d3382131f2c46276e7991471710dd69751685ea9f646ee1ce12db879.cairo": "let ret_value = __wrapped_func{syscall_ptr=syscall_ptr, pedersen_ptr=pedersen_ptr, range_check_ptr=range_check_ptr}(value=__calldata_arg_value,);\n%{ memory[ap] = segments.add() %}        // Allocate memory for return value.\ntempvar retdata: felt*;\nlet retdata_size = 0;\n",
+                "autogen/starknet/external/set_counter/741ea357d6336b0bed7bf0472425acd0311d543883b803388880e60a232040c7.cairo": "let range_check_ptr = [cast([cast(fp + (-5), felt**)] + 2, felt*)];\n",
+                "autogen/starknet/external/set_counter/9684a85e93c782014ca14293edea4eb2502039a5a7b6538ecd39c56faaf12529.cairo": "let pedersen_ptr = [cast([cast(fp + (-5), felt**)] + 1, starkware.cairo.common.cairo_builtins.HashBuiltin**)];\n",
+                "autogen/starknet/external/set_counter/b2c52ca2d2a8fc8791a983086d8716c5eacd0c3d62934914d2286f84b98ff4cb.cairo": "let syscall_ptr = [cast([cast(fp + (-5), felt**)] + 0, felt**)];\n",
+                "autogen/starknet/external/set_counter/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo": "return (syscall_ptr,pedersen_ptr,range_check_ptr,retdata_size,retdata);\n",
+                "autogen/starknet/storage_var/counter/decl.cairo": "namespace counter {\n    from starkware.starknet.common.storage import normalize_address\n    from starkware.starknet.common.syscalls import storage_read, storage_write\n    from starkware.cairo.common.cairo_builtins import HashBuiltin\n    from starkware.cairo.common.hash import hash2\n\n    func addr{pedersen_ptr: HashBuiltin*, range_check_ptr}() -> (res: felt) {\n        let res = 0;\n        call hash2;\n        call normalize_address;\n    }\n\n    func read{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}() -> (res: felt) {\n        let storage_addr = 0;\n        call addr;\n        call storage_read;\n    }\n\n    func write{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(value: felt) {\n        let storage_addr = 0;\n        call addr;\n        call storage_write;\n    }\n}",
+                "autogen/starknet/storage_var/counter/impl.cairo": "namespace counter {\n    from starkware.starknet.common.storage import normalize_address\n    from starkware.starknet.common.syscalls import storage_read, storage_write\n    from starkware.cairo.common.cairo_builtins import HashBuiltin\n    from starkware.cairo.common.hash import hash2\n\n    func addr{pedersen_ptr: HashBuiltin*, range_check_ptr}() -> (res: felt) {\n        let res = 223925651276572801467025322450506123433664924558092583619131301620304795732;\n        return (res=res);\n    }\n\n    func read{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}() -> (res: felt) {\n        let (storage_addr) = addr();\n        let (__storage_var_temp0) = storage_read(address=storage_addr + 0);\n\n        tempvar syscall_ptr = syscall_ptr;\n        tempvar pedersen_ptr = pedersen_ptr;\n        tempvar range_check_ptr = range_check_ptr;\n        tempvar __storage_var_temp0: felt = __storage_var_temp0;\n        return ([cast(&__storage_var_temp0, felt*)],);\n    }\n\n    func write{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr}(value: felt) {\n        let (storage_addr) = addr();\n        storage_write(address=storage_addr + 0, value=[cast(&value, felt) + 0]);\n        return ();\n    }\n}"
             },
             "instruction_locations": {
                 "0": {
@@ -177,12 +178,12 @@
                     "hints": [],
                     "inst": {
                         "end_col": 79,
-                        "end_line": 348,
+                        "end_line": 350,
                         "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                         },
                         "start_col": 58,
-                        "start_line": 348
+                        "start_line": 350
                     }
                 },
                 "2": {
@@ -193,13 +194,13 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 97,
-                        "end_line": 348,
+                        "end_col": 98,
+                        "end_line": 350,
                         "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                         },
                         "start_col": 5,
-                        "start_line": 348
+                        "start_line": 350
                     }
                 },
                 "3": {
@@ -210,13 +211,13 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 97,
-                        "end_line": 348,
+                        "end_col": 98,
+                        "end_line": 350,
                         "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                         },
                         "start_col": 5,
-                        "start_line": 348
+                        "start_line": 350
                     }
                 },
                 "4": {
@@ -229,48 +230,48 @@
                         {
                             "location": {
                                 "end_col": 87,
-                                "end_line": 349,
+                                "end_line": 351,
                                 "input_file": {
-                                    "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                                    "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                                 },
                                 "start_col": 5,
-                                "start_line": 349
+                                "start_line": 351
                             },
                             "n_prefix_newlines": 0
                         }
                     ],
                     "inst": {
                         "end_col": 53,
-                        "end_line": 351,
+                        "end_line": 353,
                         "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 38,
-                                "end_line": 346,
+                                "end_col": 37,
+                                "end_line": 348,
                                 "input_file": {
-                                    "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                                    "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 34,
-                                        "end_line": 352,
+                                        "end_col": 35,
+                                        "end_line": 354,
                                         "input_file": {
-                                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                                            "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                                         },
                                         "start_col": 5,
-                                        "start_line": 352
+                                        "start_line": 354
                                     },
                                     "While trying to retrieve the implicit argument 'syscall_ptr' in:"
                                 ],
                                 "start_col": 19,
-                                "start_line": 346
+                                "start_line": 348
                             },
                             "While expanding the reference 'syscall_ptr' in:"
                         ],
                         "start_col": 23,
-                        "start_line": 351
+                        "start_line": 353
                     }
                 },
                 "6": {
@@ -282,12 +283,12 @@
                     "hints": [],
                     "inst": {
                         "end_col": 33,
-                        "end_line": 352,
+                        "end_line": 354,
                         "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                         },
                         "start_col": 19,
-                        "start_line": 352
+                        "start_line": 354
                     }
                 },
                 "7": {
@@ -298,13 +299,13 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 34,
-                        "end_line": 352,
+                        "end_col": 35,
+                        "end_line": 354,
                         "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                         },
                         "start_col": 5,
-                        "start_line": 352
+                        "start_line": 354
                     }
                 },
                 "8": {
@@ -316,12 +317,12 @@
                     "hints": [],
                     "inst": {
                         "end_col": 40,
-                        "end_line": 366,
+                        "end_line": 368,
                         "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                         },
                         "start_col": 18,
-                        "start_line": 366
+                        "start_line": 368
                     }
                 },
                 "10": {
@@ -332,13 +333,13 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 71,
-                        "end_line": 366,
+                        "end_col": 72,
+                        "end_line": 368,
                         "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                         },
                         "start_col": 5,
-                        "start_line": 365
+                        "start_line": 367
                     }
                 },
                 "11": {
@@ -349,13 +350,13 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 71,
-                        "end_line": 366,
+                        "end_col": 72,
+                        "end_line": 368,
                         "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                         },
                         "start_col": 5,
-                        "start_line": 365
+                        "start_line": 367
                     }
                 },
                 "12": {
@@ -366,13 +367,13 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 71,
-                        "end_line": 366,
+                        "end_col": 72,
+                        "end_line": 368,
                         "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                         },
                         "start_col": 5,
-                        "start_line": 365
+                        "start_line": 367
                     }
                 },
                 "13": {
@@ -385,48 +386,48 @@
                         {
                             "location": {
                                 "end_col": 88,
-                                "end_line": 367,
+                                "end_line": 369,
                                 "input_file": {
-                                    "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                                    "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                                 },
                                 "start_col": 5,
-                                "start_line": 367
+                                "start_line": 369
                             },
                             "n_prefix_newlines": 0
                         }
                     ],
                     "inst": {
                         "end_col": 54,
-                        "end_line": 368,
+                        "end_line": 370,
                         "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 39,
-                                "end_line": 364,
+                                "end_col": 38,
+                                "end_line": 366,
                                 "input_file": {
-                                    "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                                    "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 14,
-                                        "end_line": 369,
+                                        "end_col": 15,
+                                        "end_line": 371,
                                         "input_file": {
-                                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                                            "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                                         },
                                         "start_col": 5,
-                                        "start_line": 369
+                                        "start_line": 371
                                     },
                                     "While trying to retrieve the implicit argument 'syscall_ptr' in:"
                                 ],
                                 "start_col": 20,
-                                "start_line": 364
+                                "start_line": 366
                             },
                             "While expanding the reference 'syscall_ptr' in:"
                         ],
                         "start_col": 23,
-                        "start_line": 368
+                        "start_line": 370
                     }
                 },
                 "15": {
@@ -437,13 +438,13 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 14,
-                        "end_line": 369,
+                        "end_col": 15,
+                        "end_line": 371,
                         "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                         },
                         "start_col": 5,
-                        "start_line": 369
+                        "start_line": 371
                     }
                 },
                 "16": {
@@ -455,21 +456,21 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 42,
+                        "end_col": 41,
                         "end_line": 7,
                         "input_file": {
                             "filename": "autogen/starknet/storage_var/counter/impl.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 42,
+                                "end_col": 41,
                                 "end_line": 7,
                                 "input_file": {
                                     "filename": "autogen/starknet/storage_var/counter/decl.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 25,
+                                        "end_col": 26,
                                         "end_line": 9,
                                         "input_file": {
                                             "filename": "autogen/starknet/storage_var/counter/impl.cairo"
@@ -497,21 +498,21 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 59,
+                        "end_col": 58,
                         "end_line": 7,
                         "input_file": {
                             "filename": "autogen/starknet/storage_var/counter/impl.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 59,
+                                "end_col": 58,
                                 "end_line": 7,
                                 "input_file": {
                                     "filename": "autogen/starknet/storage_var/counter/decl.cairo"
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 25,
+                                        "end_col": 26,
                                         "end_line": 9,
                                         "input_file": {
                                             "filename": "autogen/starknet/storage_var/counter/impl.cairo"
@@ -521,12 +522,12 @@
                                     },
                                     "While trying to retrieve the implicit argument 'range_check_ptr' in:"
                                 ],
-                                "start_col": 44,
+                                "start_col": 43,
                                 "start_line": 7
                             },
                             "While expanding the reference 'range_check_ptr' in:"
                         ],
-                        "start_col": 44,
+                        "start_col": 43,
                         "start_line": 7
                     }
                 },
@@ -569,7 +570,7 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 25,
+                        "end_col": 26,
                         "end_line": 9,
                         "input_file": {
                             "filename": "autogen/starknet/storage_var/counter/impl.cairo"
@@ -587,14 +588,14 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 63,
+                        "end_col": 61,
                         "end_line": 12,
                         "input_file": {
                             "filename": "autogen/starknet/storage_var/counter/impl.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 42,
+                                "end_col": 41,
                                 "end_line": 7,
                                 "input_file": {
                                     "filename": "autogen/starknet/storage_var/counter/decl.cairo"
@@ -616,7 +617,7 @@
                             },
                             "While expanding the reference 'pedersen_ptr' in:"
                         ],
-                        "start_col": 36,
+                        "start_col": 35,
                         "start_line": 12
                     }
                 },
@@ -629,14 +630,14 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 80,
+                        "end_col": 78,
                         "end_line": 12,
                         "input_file": {
                             "filename": "autogen/starknet/storage_var/counter/impl.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 59,
+                                "end_col": 58,
                                 "end_line": 7,
                                 "input_file": {
                                     "filename": "autogen/starknet/storage_var/counter/decl.cairo"
@@ -653,12 +654,12 @@
                                     },
                                     "While trying to retrieve the implicit argument 'range_check_ptr' in:"
                                 ],
-                                "start_col": 44,
+                                "start_col": 43,
                                 "start_line": 7
                             },
                             "While expanding the reference 'range_check_ptr' in:"
                         ],
-                        "start_col": 65,
+                        "start_col": 63,
                         "start_line": 12
                     }
                 },
@@ -689,17 +690,17 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 34,
+                        "end_col": 33,
                         "end_line": 12,
                         "input_file": {
                             "filename": "autogen/starknet/storage_var/counter/impl.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 38,
-                                "end_line": 346,
+                                "end_col": 37,
+                                "end_line": 348,
                                 "input_file": {
-                                    "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                                    "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                                 },
                                 "parent_location": [
                                     {
@@ -714,7 +715,7 @@
                                     "While trying to retrieve the implicit argument 'syscall_ptr' in:"
                                 ],
                                 "start_col": 19,
-                                "start_line": 346
+                                "start_line": 348
                             },
                             "While expanding the reference 'syscall_ptr' in:"
                         ],
@@ -779,10 +780,10 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 38,
-                        "end_line": 346,
+                        "end_col": 37,
+                        "end_line": 348,
                         "input_file": {
-                            "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                            "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                         },
                         "parent_location": [
                             {
@@ -809,7 +810,7 @@
                             "While trying to update the implicit return value 'syscall_ptr' in:"
                         ],
                         "start_col": 19,
-                        "start_line": 346
+                        "start_line": 348
                     }
                 },
                 "30": {
@@ -821,7 +822,7 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 42,
+                        "end_col": 41,
                         "end_line": 7,
                         "input_file": {
                             "filename": "autogen/starknet/storage_var/counter/decl.cairo"
@@ -863,7 +864,7 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 59,
+                        "end_col": 58,
                         "end_line": 7,
                         "input_file": {
                             "filename": "autogen/starknet/storage_var/counter/decl.cairo"
@@ -892,7 +893,7 @@
                             },
                             "While trying to update the implicit return value 'range_check_ptr' in:"
                         ],
-                        "start_col": 44,
+                        "start_col": 43,
                         "start_line": 7
                     }
                 },
@@ -912,12 +913,12 @@
                         },
                         "parent_location": [
                             {
-                                "end_col": 65,
+                                "end_col": 64,
                                 "end_line": 19,
                                 "input_file": {
                                     "filename": "autogen/starknet/storage_var/counter/impl.cairo"
                                 },
-                                "start_col": 46,
+                                "start_col": 45,
                                 "start_line": 19
                             },
                             "While expanding the reference '__storage_var_temp0' in:"
@@ -935,7 +936,7 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 53,
+                        "end_col": 55,
                         "end_line": 20,
                         "input_file": {
                             "filename": "autogen/starknet/storage_var/counter/impl.cairo"
@@ -953,14 +954,14 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 64,
+                        "end_col": 62,
                         "end_line": 23,
                         "input_file": {
                             "filename": "autogen/starknet/storage_var/counter/impl.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 42,
+                                "end_col": 41,
                                 "end_line": 7,
                                 "input_file": {
                                     "filename": "autogen/starknet/storage_var/counter/decl.cairo"
@@ -982,7 +983,7 @@
                             },
                             "While expanding the reference 'pedersen_ptr' in:"
                         ],
-                        "start_col": 37,
+                        "start_col": 36,
                         "start_line": 23
                     }
                 },
@@ -995,14 +996,14 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 81,
+                        "end_col": 79,
                         "end_line": 23,
                         "input_file": {
                             "filename": "autogen/starknet/storage_var/counter/impl.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 59,
+                                "end_col": 58,
                                 "end_line": 7,
                                 "input_file": {
                                     "filename": "autogen/starknet/storage_var/counter/decl.cairo"
@@ -1019,12 +1020,12 @@
                                     },
                                     "While trying to retrieve the implicit argument 'range_check_ptr' in:"
                                 ],
-                                "start_col": 44,
+                                "start_col": 43,
                                 "start_line": 7
                             },
                             "While expanding the reference 'range_check_ptr' in:"
                         ],
-                        "start_col": 66,
+                        "start_col": 64,
                         "start_line": 23
                     }
                 },
@@ -1055,17 +1056,17 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 35,
+                        "end_col": 34,
                         "end_line": 23,
                         "input_file": {
                             "filename": "autogen/starknet/storage_var/counter/impl.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 39,
-                                "end_line": 364,
+                                "end_col": 38,
+                                "end_line": 366,
                                 "input_file": {
-                                    "filename": "/Users/msaug/cairo_venv/lib/python3.7/site-packages/starkware/starknet/common/syscalls.cairo"
+                                    "filename": "/Users/msaug/cairo_venv/lib/python3.9/site-packages/starkware/starknet/common/syscalls.cairo"
                                 },
                                 "parent_location": [
                                     {
@@ -1080,7 +1081,7 @@
                                     "While trying to retrieve the implicit argument 'syscall_ptr' in:"
                                 ],
                                 "start_col": 20,
-                                "start_line": 364
+                                "start_line": 366
                             },
                             "While expanding the reference 'syscall_ptr' in:"
                         ],
@@ -1163,7 +1164,7 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 42,
+                        "end_col": 41,
                         "end_line": 7,
                         "input_file": {
                             "filename": "autogen/starknet/storage_var/counter/decl.cairo"
@@ -1177,14 +1178,14 @@
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 64,
+                                        "end_col": 62,
                                         "end_line": 19,
                                         "input_file": {
                                             "filename": "autogen/starknet/storage_var/counter/decl.cairo"
                                         },
                                         "parent_location": [
                                             {
-                                                "end_col": 18,
+                                                "end_col": 19,
                                                 "end_line": 26,
                                                 "input_file": {
                                                     "filename": "autogen/starknet/storage_var/counter/impl.cairo"
@@ -1194,7 +1195,7 @@
                                             },
                                             "While trying to retrieve the implicit argument 'pedersen_ptr' in:"
                                         ],
-                                        "start_col": 37,
+                                        "start_col": 36,
                                         "start_line": 19
                                     },
                                     "While expanding the reference 'pedersen_ptr' in:"
@@ -1217,7 +1218,7 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 59,
+                        "end_col": 58,
                         "end_line": 7,
                         "input_file": {
                             "filename": "autogen/starknet/storage_var/counter/decl.cairo"
@@ -1231,14 +1232,14 @@
                                 },
                                 "parent_location": [
                                     {
-                                        "end_col": 81,
+                                        "end_col": 79,
                                         "end_line": 19,
                                         "input_file": {
                                             "filename": "autogen/starknet/storage_var/counter/decl.cairo"
                                         },
                                         "parent_location": [
                                             {
-                                                "end_col": 18,
+                                                "end_col": 19,
                                                 "end_line": 26,
                                                 "input_file": {
                                                     "filename": "autogen/starknet/storage_var/counter/impl.cairo"
@@ -1248,7 +1249,7 @@
                                             },
                                             "While trying to retrieve the implicit argument 'range_check_ptr' in:"
                                         ],
-                                        "start_col": 66,
+                                        "start_col": 64,
                                         "start_line": 19
                                     },
                                     "While expanding the reference 'range_check_ptr' in:"
@@ -1258,7 +1259,7 @@
                             },
                             "While trying to update the implicit return value 'range_check_ptr' in:"
                         ],
-                        "start_col": 44,
+                        "start_col": 43,
                         "start_line": 7
                     }
                 },
@@ -1271,7 +1272,7 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 18,
+                        "end_col": 19,
                         "end_line": 26,
                         "input_file": {
                             "filename": "autogen/starknet/storage_var/counter/impl.cairo"
@@ -1289,14 +1290,14 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 37,
-                        "end_line": 10,
+                        "end_col": 36,
+                        "end_line": 9,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 35,
+                                "end_col": 34,
                                 "end_line": 19,
                                 "input_file": {
                                     "filename": "autogen/starknet/storage_var/counter/decl.cairo"
@@ -1304,12 +1305,12 @@
                                 "parent_location": [
                                     {
                                         "end_col": 25,
-                                        "end_line": 13,
+                                        "end_line": 12,
                                         "input_file": {
-                                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                         },
                                         "start_col": 5,
-                                        "start_line": 13
+                                        "start_line": 12
                                     },
                                     "While trying to retrieve the implicit argument 'syscall_ptr' in:"
                                 ],
@@ -1319,7 +1320,7 @@
                             "While expanding the reference 'syscall_ptr' in:"
                         ],
                         "start_col": 18,
-                        "start_line": 10
+                        "start_line": 9
                     }
                 },
                 "47": {
@@ -1331,14 +1332,14 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 66,
-                        "end_line": 10,
+                        "end_col": 64,
+                        "end_line": 9,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 64,
+                                "end_col": 62,
                                 "end_line": 19,
                                 "input_file": {
                                     "filename": "autogen/starknet/storage_var/counter/decl.cairo"
@@ -1346,22 +1347,22 @@
                                 "parent_location": [
                                     {
                                         "end_col": 25,
-                                        "end_line": 13,
+                                        "end_line": 12,
                                         "input_file": {
-                                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                         },
                                         "start_col": 5,
-                                        "start_line": 13
+                                        "start_line": 12
                                     },
                                     "While trying to retrieve the implicit argument 'pedersen_ptr' in:"
                                 ],
-                                "start_col": 37,
+                                "start_col": 36,
                                 "start_line": 19
                             },
                             "While expanding the reference 'pedersen_ptr' in:"
                         ],
-                        "start_col": 39,
-                        "start_line": 10
+                        "start_col": 38,
+                        "start_line": 9
                     }
                 },
                 "48": {
@@ -1373,14 +1374,14 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 90,
-                        "end_line": 10,
+                        "end_col": 87,
+                        "end_line": 9,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 81,
+                                "end_col": 79,
                                 "end_line": 19,
                                 "input_file": {
                                     "filename": "autogen/starknet/storage_var/counter/decl.cairo"
@@ -1388,22 +1389,22 @@
                                 "parent_location": [
                                     {
                                         "end_col": 25,
-                                        "end_line": 13,
+                                        "end_line": 12,
                                         "input_file": {
-                                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                         },
                                         "start_col": 5,
-                                        "start_line": 13
+                                        "start_line": 12
                                     },
                                     "While trying to retrieve the implicit argument 'range_check_ptr' in:"
                                 ],
-                                "start_col": 66,
+                                "start_col": 64,
                                 "start_line": 19
                             },
                             "While expanding the reference 'range_check_ptr' in:"
                         ],
-                        "start_col": 68,
-                        "start_line": 10
+                        "start_col": 66,
+                        "start_line": 9
                     }
                 },
                 "49": {
@@ -1415,25 +1416,25 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 17,
-                        "end_line": 11,
+                        "end_col": 16,
+                        "end_line": 10,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 24,
-                                "end_line": 13,
+                                "end_line": 12,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "start_col": 19,
-                                "start_line": 13
+                                "start_line": 12
                             },
                             "While expanding the reference 'value' in:"
                         ],
                         "start_col": 5,
-                        "start_line": 11
+                        "start_line": 10
                     }
                 },
                 "50": {
@@ -1446,12 +1447,12 @@
                     "hints": [],
                     "inst": {
                         "end_col": 25,
-                        "end_line": 13,
+                        "end_line": 12,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                         },
                         "start_col": 5,
-                        "start_line": 13
+                        "start_line": 12
                     }
                 },
                 "52": {
@@ -1463,13 +1464,13 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 14,
-                        "end_line": 14,
+                        "end_col": 15,
+                        "end_line": 13,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                         },
                         "start_col": 5,
-                        "start_line": 14
+                        "start_line": 13
                     }
                 },
                 "53": {
@@ -1485,45 +1486,45 @@
                         "end_col": 40,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/arg_processor/fc42d727d94c768e43778d12b1fd9241d795ce55b227b746a3ae311d5894c21a.cairo"
+                            "filename": "autogen/starknet/arg_processor/3e93b8906c329e7a5c33e020ce7a5a9c542c4444955be98eec5fcbef545a8662.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 17,
-                                "end_line": 11,
+                                "end_col": 16,
+                                "end_line": 10,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 45,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/arg_processor/5e1cc73f0b484f90bb02da164d88332b40c6f698801aa4d3c603dab22157e902.cairo"
+                                            "filename": "autogen/starknet/arg_processor/c31620b02d4d706f0542c989b2aadc01b0981d1f6a5933a8fe4937ace3d70d92.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 10,
+                                                "end_line": 9,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "parent_location": [
                                                     {
                                                         "end_col": 57,
                                                         "end_line": 1,
                                                         "input_file": {
-                                                            "filename": "autogen/starknet/arg_processor/1b562308a65653425ce06491fa4b4539466f3251a07e73e099d0afe86a48900e.cairo"
+                                                            "filename": "autogen/starknet/arg_processor/01cba52f8515996bb9d7070bde81ff39281d096d7024a558efcba6e1fd2402cf.cairo"
                                                         },
                                                         "parent_location": [
                                                             {
                                                                 "end_col": 17,
-                                                                "end_line": 10,
+                                                                "end_line": 9,
                                                                 "input_file": {
-                                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                                 },
                                                                 "start_col": 6,
-                                                                "start_line": 10
+                                                                "start_line": 9
                                                             },
                                                             "While handling calldata of"
                                                         ],
@@ -1533,7 +1534,7 @@
                                                     "While expanding the reference '__calldata_actual_size' in:"
                                                 ],
                                                 "start_col": 6,
-                                                "start_line": 10
+                                                "start_line": 9
                                             },
                                             "While handling calldata of"
                                         ],
@@ -1543,7 +1544,7 @@
                                     "While expanding the reference '__calldata_ptr' in:"
                                 ],
                                 "start_col": 5,
-                                "start_line": 11
+                                "start_line": 10
                             },
                             "While handling calldata argument 'value'"
                         ],
@@ -1561,20 +1562,20 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 57,
+                        "end_col": 58,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/arg_processor/1b562308a65653425ce06491fa4b4539466f3251a07e73e099d0afe86a48900e.cairo"
+                            "filename": "autogen/starknet/arg_processor/01cba52f8515996bb9d7070bde81ff39281d096d7024a558efcba6e1fd2402cf.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 10,
+                                "end_line": 9,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "start_col": 6,
-                                "start_line": 10
+                                "start_line": 9
                             },
                             "While handling calldata of"
                         ],
@@ -1595,31 +1596,31 @@
                         "end_col": 64,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/set_counter/c7060df96cb0acca1380ae43bf758cab727bfdf73cb5d34a93e24a9742817fda.cairo"
+                            "filename": "autogen/starknet/external/set_counter/b2c52ca2d2a8fc8791a983086d8716c5eacd0c3d62934914d2286f84b98ff4cb.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 37,
-                                "end_line": 10,
+                                "end_col": 36,
+                                "end_line": 9,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 55,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/set_counter/dba7eaed647380015af923385160552bb0502d1f8d7db2d4fd0142bd2f14519c.cairo"
+                                            "filename": "autogen/starknet/external/set_counter/4c302f52d3382131f2c46276e7991471710dd69751685ea9f646ee1ce12db879.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 10,
+                                                "end_line": 9,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 10
+                                                "start_line": 9
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -1629,7 +1630,7 @@
                                     "While expanding the reference 'syscall_ptr' in:"
                                 ],
                                 "start_col": 18,
-                                "start_line": 10
+                                "start_line": 9
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1650,31 +1651,31 @@
                         "end_col": 110,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/set_counter/424b26e79f70343cc02557f1fbd25745138efb26a3dc5c8b593ca765b73138b7.cairo"
+                            "filename": "autogen/starknet/external/set_counter/9684a85e93c782014ca14293edea4eb2502039a5a7b6538ecd39c56faaf12529.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 66,
-                                "end_line": 10,
+                                "end_col": 64,
+                                "end_line": 9,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 82,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/set_counter/dba7eaed647380015af923385160552bb0502d1f8d7db2d4fd0142bd2f14519c.cairo"
+                                            "filename": "autogen/starknet/external/set_counter/4c302f52d3382131f2c46276e7991471710dd69751685ea9f646ee1ce12db879.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 10,
+                                                "end_line": 9,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 10
+                                                "start_line": 9
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -1683,8 +1684,8 @@
                                     },
                                     "While expanding the reference 'pedersen_ptr' in:"
                                 ],
-                                "start_col": 39,
-                                "start_line": 10
+                                "start_col": 38,
+                                "start_line": 9
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1705,31 +1706,31 @@
                         "end_col": 67,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/set_counter/e651458745e7cd218121c342e0915890767e2f59ddc2e315b8844ad0f47d582e.cairo"
+                            "filename": "autogen/starknet/external/set_counter/741ea357d6336b0bed7bf0472425acd0311d543883b803388880e60a232040c7.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 90,
-                                "end_line": 10,
+                                "end_col": 87,
+                                "end_line": 9,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 115,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/set_counter/dba7eaed647380015af923385160552bb0502d1f8d7db2d4fd0142bd2f14519c.cairo"
+                                            "filename": "autogen/starknet/external/set_counter/4c302f52d3382131f2c46276e7991471710dd69751685ea9f646ee1ce12db879.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 10,
+                                                "end_line": 9,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 10
+                                                "start_line": 9
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -1738,8 +1739,8 @@
                                     },
                                     "While expanding the reference 'range_check_ptr' in:"
                                 ],
-                                "start_col": 68,
-                                "start_line": 10
+                                "start_col": 66,
+                                "start_line": 9
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1760,31 +1761,31 @@
                         "end_col": 44,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/arg_processor/fc42d727d94c768e43778d12b1fd9241d795ce55b227b746a3ae311d5894c21a.cairo"
+                            "filename": "autogen/starknet/arg_processor/3e93b8906c329e7a5c33e020ce7a5a9c542c4444955be98eec5fcbef545a8662.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 17,
-                                "end_line": 11,
+                                "end_col": 16,
+                                "end_line": 10,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 143,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/set_counter/dba7eaed647380015af923385160552bb0502d1f8d7db2d4fd0142bd2f14519c.cairo"
+                                            "filename": "autogen/starknet/external/set_counter/4c302f52d3382131f2c46276e7991471710dd69751685ea9f646ee1ce12db879.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 10,
+                                                "end_line": 9,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 10
+                                                "start_line": 9
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -1794,7 +1795,7 @@
                                     "While expanding the reference '__calldata_arg_value' in:"
                                 ],
                                 "start_col": 5,
-                                "start_line": 11
+                                "start_line": 10
                             },
                             "While handling calldata argument 'value'"
                         ],
@@ -1813,12 +1814,12 @@
                     "hints": [],
                     "inst": {
                         "end_col": 17,
-                        "end_line": 10,
+                        "end_line": 9,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                         },
                         "start_col": 6,
-                        "start_line": 10
+                        "start_line": 9
                     }
                 },
                 "62": {
@@ -1835,17 +1836,17 @@
                                 "end_col": 34,
                                 "end_line": 2,
                                 "input_file": {
-                                    "filename": "autogen/starknet/external/set_counter/dba7eaed647380015af923385160552bb0502d1f8d7db2d4fd0142bd2f14519c.cairo"
+                                    "filename": "autogen/starknet/external/set_counter/4c302f52d3382131f2c46276e7991471710dd69751685ea9f646ee1ce12db879.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 17,
-                                        "end_line": 10,
+                                        "end_line": 9,
                                         "input_file": {
-                                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                         },
                                         "start_col": 6,
-                                        "start_line": 10
+                                        "start_line": 9
                                     },
                                     "While constructing the external wrapper for:"
                                 ],
@@ -1859,17 +1860,17 @@
                         "end_col": 24,
                         "end_line": 3,
                         "input_file": {
-                            "filename": "autogen/starknet/external/set_counter/dba7eaed647380015af923385160552bb0502d1f8d7db2d4fd0142bd2f14519c.cairo"
+                            "filename": "autogen/starknet/external/set_counter/4c302f52d3382131f2c46276e7991471710dd69751685ea9f646ee1ce12db879.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 10,
+                                "end_line": 9,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "start_col": 6,
-                                "start_line": 10
+                                "start_line": 9
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1890,31 +1891,31 @@
                         "end_col": 55,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/set_counter/dba7eaed647380015af923385160552bb0502d1f8d7db2d4fd0142bd2f14519c.cairo"
+                            "filename": "autogen/starknet/external/set_counter/4c302f52d3382131f2c46276e7991471710dd69751685ea9f646ee1ce12db879.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 10,
+                                "end_line": 9,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 20,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/set_counter/4ba2b119ceb30fe10f4cca3c9d73ef620c0fb5eece91b99a99d71217bba1001c.cairo"
+                                            "filename": "autogen/starknet/external/set_counter/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 10,
+                                                "end_line": 9,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 10
+                                                "start_line": 9
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -1924,7 +1925,7 @@
                                     "While expanding the reference 'syscall_ptr' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 10
+                                "start_line": 9
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -1945,31 +1946,31 @@
                         "end_col": 82,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/set_counter/dba7eaed647380015af923385160552bb0502d1f8d7db2d4fd0142bd2f14519c.cairo"
+                            "filename": "autogen/starknet/external/set_counter/4c302f52d3382131f2c46276e7991471710dd69751685ea9f646ee1ce12db879.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 10,
+                                "end_line": 9,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 33,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/set_counter/4ba2b119ceb30fe10f4cca3c9d73ef620c0fb5eece91b99a99d71217bba1001c.cairo"
+                                            "filename": "autogen/starknet/external/set_counter/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 10,
+                                                "end_line": 9,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 10
+                                                "start_line": 9
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -1979,7 +1980,7 @@
                                     "While expanding the reference 'pedersen_ptr' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 10
+                                "start_line": 9
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -2000,31 +2001,31 @@
                         "end_col": 115,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/set_counter/dba7eaed647380015af923385160552bb0502d1f8d7db2d4fd0142bd2f14519c.cairo"
+                            "filename": "autogen/starknet/external/set_counter/4c302f52d3382131f2c46276e7991471710dd69751685ea9f646ee1ce12db879.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 10,
+                                "end_line": 9,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 49,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/set_counter/4ba2b119ceb30fe10f4cca3c9d73ef620c0fb5eece91b99a99d71217bba1001c.cairo"
+                                            "filename": "autogen/starknet/external/set_counter/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 10,
+                                                "end_line": 9,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 10
+                                                "start_line": 9
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -2034,7 +2035,7 @@
                                     "While expanding the reference 'range_check_ptr' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 10
+                                "start_line": 9
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -2055,31 +2056,31 @@
                         "end_col": 21,
                         "end_line": 4,
                         "input_file": {
-                            "filename": "autogen/starknet/external/set_counter/dba7eaed647380015af923385160552bb0502d1f8d7db2d4fd0142bd2f14519c.cairo"
+                            "filename": "autogen/starknet/external/set_counter/4c302f52d3382131f2c46276e7991471710dd69751685ea9f646ee1ce12db879.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 10,
+                                "end_line": 9,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 62,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/set_counter/4ba2b119ceb30fe10f4cca3c9d73ef620c0fb5eece91b99a99d71217bba1001c.cairo"
+                                            "filename": "autogen/starknet/external/set_counter/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 10,
+                                                "end_line": 9,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 10
+                                                "start_line": 9
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -2089,7 +2090,7 @@
                                     "While expanding the reference 'retdata_size' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 10
+                                "start_line": 9
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -2110,31 +2111,31 @@
                         "end_col": 16,
                         "end_line": 3,
                         "input_file": {
-                            "filename": "autogen/starknet/external/set_counter/dba7eaed647380015af923385160552bb0502d1f8d7db2d4fd0142bd2f14519c.cairo"
+                            "filename": "autogen/starknet/external/set_counter/4c302f52d3382131f2c46276e7991471710dd69751685ea9f646ee1ce12db879.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 10,
+                                "end_line": 9,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 70,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/set_counter/4ba2b119ceb30fe10f4cca3c9d73ef620c0fb5eece91b99a99d71217bba1001c.cairo"
+                                            "filename": "autogen/starknet/external/set_counter/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 10,
+                                                "end_line": 9,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 10
+                                                "start_line": 9
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -2144,7 +2145,7 @@
                                     "While expanding the reference 'retdata' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 10
+                                "start_line": 9
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -2162,20 +2163,20 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 71,
+                        "end_col": 72,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/set_counter/4ba2b119ceb30fe10f4cca3c9d73ef620c0fb5eece91b99a99d71217bba1001c.cairo"
+                            "filename": "autogen/starknet/external/set_counter/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 10,
+                                "end_line": 9,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "start_col": 6,
-                                "start_line": 10
+                                "start_line": 9
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -2192,14 +2193,14 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 37,
-                        "end_line": 18,
+                        "end_col": 36,
+                        "end_line": 17,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 34,
+                                "end_col": 33,
                                 "end_line": 13,
                                 "input_file": {
                                     "filename": "autogen/starknet/storage_var/counter/decl.cairo"
@@ -2207,12 +2208,12 @@
                                 "parent_location": [
                                     {
                                         "end_col": 31,
-                                        "end_line": 21,
+                                        "end_line": 20,
                                         "input_file": {
-                                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                         },
                                         "start_col": 17,
-                                        "start_line": 21
+                                        "start_line": 20
                                     },
                                     "While trying to retrieve the implicit argument 'syscall_ptr' in:"
                                 ],
@@ -2222,7 +2223,7 @@
                             "While expanding the reference 'syscall_ptr' in:"
                         ],
                         "start_col": 18,
-                        "start_line": 18
+                        "start_line": 17
                     }
                 },
                 "72": {
@@ -2234,14 +2235,14 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 66,
-                        "end_line": 18,
+                        "end_col": 64,
+                        "end_line": 17,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 63,
+                                "end_col": 61,
                                 "end_line": 13,
                                 "input_file": {
                                     "filename": "autogen/starknet/storage_var/counter/decl.cairo"
@@ -2249,22 +2250,22 @@
                                 "parent_location": [
                                     {
                                         "end_col": 31,
-                                        "end_line": 21,
+                                        "end_line": 20,
                                         "input_file": {
-                                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                         },
                                         "start_col": 17,
-                                        "start_line": 21
+                                        "start_line": 20
                                     },
                                     "While trying to retrieve the implicit argument 'pedersen_ptr' in:"
                                 ],
-                                "start_col": 36,
+                                "start_col": 35,
                                 "start_line": 13
                             },
                             "While expanding the reference 'pedersen_ptr' in:"
                         ],
-                        "start_col": 39,
-                        "start_line": 18
+                        "start_col": 38,
+                        "start_line": 17
                     }
                 },
                 "73": {
@@ -2276,14 +2277,14 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 90,
-                        "end_line": 18,
+                        "end_col": 87,
+                        "end_line": 17,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 80,
+                                "end_col": 78,
                                 "end_line": 13,
                                 "input_file": {
                                     "filename": "autogen/starknet/storage_var/counter/decl.cairo"
@@ -2291,22 +2292,22 @@
                                 "parent_location": [
                                     {
                                         "end_col": 31,
-                                        "end_line": 21,
+                                        "end_line": 20,
                                         "input_file": {
-                                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                         },
                                         "start_col": 17,
-                                        "start_line": 21
+                                        "start_line": 20
                                     },
                                     "While trying to retrieve the implicit argument 'range_check_ptr' in:"
                                 ],
-                                "start_col": 65,
+                                "start_col": 63,
                                 "start_line": 13
                             },
                             "While expanding the reference 'range_check_ptr' in:"
                         ],
-                        "start_col": 68,
-                        "start_line": 18
+                        "start_col": 66,
+                        "start_line": 17
                     }
                 },
                 "74": {
@@ -2319,12 +2320,12 @@
                     "hints": [],
                     "inst": {
                         "end_col": 31,
-                        "end_line": 21,
+                        "end_line": 20,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                         },
                         "start_col": 17,
-                        "start_line": 21
+                        "start_line": 20
                     }
                 },
                 "76": {
@@ -2336,13 +2337,13 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 17,
-                        "end_line": 22,
+                        "end_col": 22,
+                        "end_line": 21,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                         },
                         "start_col": 5,
-                        "start_line": 22
+                        "start_line": 21
                     }
                 },
                 "77": {
@@ -2359,17 +2360,17 @@
                                 "end_col": 38,
                                 "end_line": 3,
                                 "input_file": {
-                                    "filename": "autogen/starknet/external/return/get_counter/ac8075b86cf991864ecaffe3e052319c4c84c8a8fe9deaea1aef3d7f70e0af0a.cairo"
+                                    "filename": "autogen/starknet/external/return/get_counter/53d22414b0ca7152cf22c21072cf07a973affc5d98fee84dc31553f03638b74f.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 17,
-                                        "end_line": 18,
+                                        "end_line": 17,
                                         "input_file": {
-                                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                         },
                                         "start_col": 6,
-                                        "start_line": 18
+                                        "start_line": 17
                                     },
                                     "While handling return value of"
                                 ],
@@ -2380,20 +2381,20 @@
                         }
                     ],
                     "inst": {
-                        "end_col": 17,
+                        "end_col": 18,
                         "end_line": 4,
                         "input_file": {
-                            "filename": "autogen/starknet/external/return/get_counter/ac8075b86cf991864ecaffe3e052319c4c84c8a8fe9deaea1aef3d7f70e0af0a.cairo"
+                            "filename": "autogen/starknet/external/return/get_counter/53d22414b0ca7152cf22c21072cf07a973affc5d98fee84dc31553f03638b74f.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 18,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "start_col": 6,
-                                "start_line": 18
+                                "start_line": 17
                             },
                             "While handling return value of"
                         ],
@@ -2411,20 +2412,20 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 44,
+                        "end_col": 45,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/arg_processor/a46542dc358872d57a2d9f424e61d9b07a0e4c72f24e3645022494cebfb47c83.cairo"
+                            "filename": "autogen/starknet/arg_processor/293368f3a0e12cfcf22314a31e13b9801e95a5b8b2b71822a2fbbdf5a01ea795.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 15,
-                                "end_line": 19,
+                                "end_col": 14,
+                                "end_line": 18,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "start_col": 5,
-                                "start_line": 19
+                                "start_line": 18
                             },
                             "While handling return value 'res'"
                         ],
@@ -2445,31 +2446,31 @@
                         "end_col": 48,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/arg_processor/a46542dc358872d57a2d9f424e61d9b07a0e4c72f24e3645022494cebfb47c83.cairo"
+                            "filename": "autogen/starknet/arg_processor/293368f3a0e12cfcf22314a31e13b9801e95a5b8b2b71822a2fbbdf5a01ea795.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 15,
-                                "end_line": 19,
+                                "end_col": 14,
+                                "end_line": 18,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 36,
                                         "end_line": 11,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/return/get_counter/ac8075b86cf991864ecaffe3e052319c4c84c8a8fe9deaea1aef3d7f70e0af0a.cairo"
+                                            "filename": "autogen/starknet/external/return/get_counter/53d22414b0ca7152cf22c21072cf07a973affc5d98fee84dc31553f03638b74f.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 18,
+                                                "end_line": 17,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 18
+                                                "start_line": 17
                                             },
                                             "While handling return value of"
                                         ],
@@ -2479,7 +2480,7 @@
                                     "While expanding the reference '__return_value_ptr' in:"
                                 ],
                                 "start_col": 5,
-                                "start_line": 19
+                                "start_line": 18
                             },
                             "While handling return value 'res'"
                         ],
@@ -2497,34 +2498,34 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 73,
+                        "end_col": 71,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/return/get_counter/ac8075b86cf991864ecaffe3e052319c4c84c8a8fe9deaea1aef3d7f70e0af0a.cairo"
+                            "filename": "autogen/starknet/external/return/get_counter/53d22414b0ca7152cf22c21072cf07a973affc5d98fee84dc31553f03638b74f.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 18,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 40,
                                         "end_line": 10,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/return/get_counter/ac8075b86cf991864ecaffe3e052319c4c84c8a8fe9deaea1aef3d7f70e0af0a.cairo"
+                                            "filename": "autogen/starknet/external/return/get_counter/53d22414b0ca7152cf22c21072cf07a973affc5d98fee84dc31553f03638b74f.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 18,
+                                                "end_line": 17,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 18
+                                                "start_line": 17
                                             },
                                             "While handling return value of"
                                         ],
@@ -2534,11 +2535,11 @@
                                     "While expanding the reference 'range_check_ptr' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 18
+                                "start_line": 17
                             },
                             "While handling return value of"
                         ],
-                        "start_col": 58,
+                        "start_col": 56,
                         "start_line": 1
                     }
                 },
@@ -2555,17 +2556,17 @@
                         "end_col": 63,
                         "end_line": 11,
                         "input_file": {
-                            "filename": "autogen/starknet/external/return/get_counter/ac8075b86cf991864ecaffe3e052319c4c84c8a8fe9deaea1aef3d7f70e0af0a.cairo"
+                            "filename": "autogen/starknet/external/return/get_counter/53d22414b0ca7152cf22c21072cf07a973affc5d98fee84dc31553f03638b74f.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 18,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "start_col": 6,
-                                "start_line": 18
+                                "start_line": 17
                             },
                             "While handling return value of"
                         ],
@@ -2586,31 +2587,31 @@
                         "end_col": 35,
                         "end_line": 5,
                         "input_file": {
-                            "filename": "autogen/starknet/external/return/get_counter/ac8075b86cf991864ecaffe3e052319c4c84c8a8fe9deaea1aef3d7f70e0af0a.cairo"
+                            "filename": "autogen/starknet/external/return/get_counter/53d22414b0ca7152cf22c21072cf07a973affc5d98fee84dc31553f03638b74f.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 18,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 38,
                                         "end_line": 12,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/return/get_counter/ac8075b86cf991864ecaffe3e052319c4c84c8a8fe9deaea1aef3d7f70e0af0a.cairo"
+                                            "filename": "autogen/starknet/external/return/get_counter/53d22414b0ca7152cf22c21072cf07a973affc5d98fee84dc31553f03638b74f.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 18,
+                                                "end_line": 17,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 18
+                                                "start_line": 17
                                             },
                                             "While handling return value of"
                                         ],
@@ -2620,7 +2621,7 @@
                                     "While expanding the reference '__return_value_ptr_start' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 18
+                                "start_line": 17
                             },
                             "While handling return value of"
                         ],
@@ -2638,20 +2639,20 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 39,
+                        "end_col": 40,
                         "end_line": 12,
                         "input_file": {
-                            "filename": "autogen/starknet/external/return/get_counter/ac8075b86cf991864ecaffe3e052319c4c84c8a8fe9deaea1aef3d7f70e0af0a.cairo"
+                            "filename": "autogen/starknet/external/return/get_counter/53d22414b0ca7152cf22c21072cf07a973affc5d98fee84dc31553f03638b74f.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 18,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "start_col": 6,
-                                "start_line": 18
+                                "start_line": 17
                             },
                             "While handling return value of"
                         ],
@@ -2669,20 +2670,20 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 57,
+                        "end_col": 58,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/arg_processor/1b562308a65653425ce06491fa4b4539466f3251a07e73e099d0afe86a48900e.cairo"
+                            "filename": "autogen/starknet/arg_processor/01cba52f8515996bb9d7070bde81ff39281d096d7024a558efcba6e1fd2402cf.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 18,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "start_col": 6,
-                                "start_line": 18
+                                "start_line": 17
                             },
                             "While handling calldata of"
                         ],
@@ -2703,31 +2704,31 @@
                         "end_col": 64,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/get_counter/c7060df96cb0acca1380ae43bf758cab727bfdf73cb5d34a93e24a9742817fda.cairo"
+                            "filename": "autogen/starknet/external/get_counter/b2c52ca2d2a8fc8791a983086d8716c5eacd0c3d62934914d2286f84b98ff4cb.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 37,
-                                "end_line": 18,
+                                "end_col": 36,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 55,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/get_counter/c15deeadf6d1d88c57c7df96340cd60ac523be75512216e3db264ace7b0f6f05.cairo"
+                                            "filename": "autogen/starknet/external/get_counter/5b2c763453f6c596f8b3a2290aac25647596fd7ef6915d7fbba58ad01f434d2b.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 18,
+                                                "end_line": 17,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 18
+                                                "start_line": 17
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -2737,7 +2738,7 @@
                                     "While expanding the reference 'syscall_ptr' in:"
                                 ],
                                 "start_col": 18,
-                                "start_line": 18
+                                "start_line": 17
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -2758,31 +2759,31 @@
                         "end_col": 110,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/get_counter/424b26e79f70343cc02557f1fbd25745138efb26a3dc5c8b593ca765b73138b7.cairo"
+                            "filename": "autogen/starknet/external/get_counter/9684a85e93c782014ca14293edea4eb2502039a5a7b6538ecd39c56faaf12529.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 66,
-                                "end_line": 18,
+                                "end_col": 64,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 82,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/get_counter/c15deeadf6d1d88c57c7df96340cd60ac523be75512216e3db264ace7b0f6f05.cairo"
+                                            "filename": "autogen/starknet/external/get_counter/5b2c763453f6c596f8b3a2290aac25647596fd7ef6915d7fbba58ad01f434d2b.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 18,
+                                                "end_line": 17,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 18
+                                                "start_line": 17
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -2791,8 +2792,8 @@
                                     },
                                     "While expanding the reference 'pedersen_ptr' in:"
                                 ],
-                                "start_col": 39,
-                                "start_line": 18
+                                "start_col": 38,
+                                "start_line": 17
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -2813,31 +2814,31 @@
                         "end_col": 67,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/get_counter/e651458745e7cd218121c342e0915890767e2f59ddc2e315b8844ad0f47d582e.cairo"
+                            "filename": "autogen/starknet/external/get_counter/741ea357d6336b0bed7bf0472425acd0311d543883b803388880e60a232040c7.cairo"
                         },
                         "parent_location": [
                             {
-                                "end_col": 90,
-                                "end_line": 18,
+                                "end_col": 87,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 115,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/get_counter/c15deeadf6d1d88c57c7df96340cd60ac523be75512216e3db264ace7b0f6f05.cairo"
+                                            "filename": "autogen/starknet/external/get_counter/5b2c763453f6c596f8b3a2290aac25647596fd7ef6915d7fbba58ad01f434d2b.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 18,
+                                                "end_line": 17,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 18
+                                                "start_line": 17
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -2846,8 +2847,8 @@
                                     },
                                     "While expanding the reference 'range_check_ptr' in:"
                                 ],
-                                "start_col": 68,
-                                "start_line": 18
+                                "start_col": 66,
+                                "start_line": 17
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -2866,12 +2867,12 @@
                     "hints": [],
                     "inst": {
                         "end_col": 17,
-                        "end_line": 18,
+                        "end_line": 17,
                         "input_file": {
-                            "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                            "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                         },
                         "start_col": 6,
-                        "start_line": 18
+                        "start_line": 17
                     }
                 },
                 "92": {
@@ -2887,31 +2888,31 @@
                         "end_col": 115,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/get_counter/c15deeadf6d1d88c57c7df96340cd60ac523be75512216e3db264ace7b0f6f05.cairo"
+                            "filename": "autogen/starknet/external/get_counter/5b2c763453f6c596f8b3a2290aac25647596fd7ef6915d7fbba58ad01f434d2b.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 18,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 100,
                                         "end_line": 2,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/get_counter/c15deeadf6d1d88c57c7df96340cd60ac523be75512216e3db264ace7b0f6f05.cairo"
+                                            "filename": "autogen/starknet/external/get_counter/5b2c763453f6c596f8b3a2290aac25647596fd7ef6915d7fbba58ad01f434d2b.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 18,
+                                                "end_line": 17,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 18
+                                                "start_line": 17
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -2921,7 +2922,7 @@
                                     "While expanding the reference 'range_check_ptr' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 18
+                                "start_line": 17
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -2942,17 +2943,17 @@
                         "end_col": 101,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/external/get_counter/c15deeadf6d1d88c57c7df96340cd60ac523be75512216e3db264ace7b0f6f05.cairo"
+                            "filename": "autogen/starknet/external/get_counter/5b2c763453f6c596f8b3a2290aac25647596fd7ef6915d7fbba58ad01f434d2b.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 18,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "start_col": 6,
-                                "start_line": 18
+                                "start_line": 17
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -2973,31 +2974,31 @@
                         "end_col": 55,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/get_counter/c15deeadf6d1d88c57c7df96340cd60ac523be75512216e3db264ace7b0f6f05.cairo"
+                            "filename": "autogen/starknet/external/get_counter/5b2c763453f6c596f8b3a2290aac25647596fd7ef6915d7fbba58ad01f434d2b.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 18,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 20,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/get_counter/4ba2b119ceb30fe10f4cca3c9d73ef620c0fb5eece91b99a99d71217bba1001c.cairo"
+                                            "filename": "autogen/starknet/external/get_counter/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 18,
+                                                "end_line": 17,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 18
+                                                "start_line": 17
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -3007,7 +3008,7 @@
                                     "While expanding the reference 'syscall_ptr' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 18
+                                "start_line": 17
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -3028,31 +3029,31 @@
                         "end_col": 82,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/get_counter/c15deeadf6d1d88c57c7df96340cd60ac523be75512216e3db264ace7b0f6f05.cairo"
+                            "filename": "autogen/starknet/external/get_counter/5b2c763453f6c596f8b3a2290aac25647596fd7ef6915d7fbba58ad01f434d2b.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 18,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 33,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/get_counter/4ba2b119ceb30fe10f4cca3c9d73ef620c0fb5eece91b99a99d71217bba1001c.cairo"
+                                            "filename": "autogen/starknet/external/get_counter/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 18,
+                                                "end_line": 17,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 18
+                                                "start_line": 17
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -3062,7 +3063,7 @@
                                     "While expanding the reference 'pedersen_ptr' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 18
+                                "start_line": 17
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -3083,31 +3084,31 @@
                         "end_col": 21,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/external/get_counter/c15deeadf6d1d88c57c7df96340cd60ac523be75512216e3db264ace7b0f6f05.cairo"
+                            "filename": "autogen/starknet/external/get_counter/5b2c763453f6c596f8b3a2290aac25647596fd7ef6915d7fbba58ad01f434d2b.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 18,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 49,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/get_counter/4ba2b119ceb30fe10f4cca3c9d73ef620c0fb5eece91b99a99d71217bba1001c.cairo"
+                                            "filename": "autogen/starknet/external/get_counter/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 18,
+                                                "end_line": 17,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 18
+                                                "start_line": 17
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -3117,7 +3118,7 @@
                                     "While expanding the reference 'range_check_ptr' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 18
+                                "start_line": 17
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -3138,31 +3139,31 @@
                         "end_col": 35,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/external/get_counter/c15deeadf6d1d88c57c7df96340cd60ac523be75512216e3db264ace7b0f6f05.cairo"
+                            "filename": "autogen/starknet/external/get_counter/5b2c763453f6c596f8b3a2290aac25647596fd7ef6915d7fbba58ad01f434d2b.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 18,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 62,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/get_counter/4ba2b119ceb30fe10f4cca3c9d73ef620c0fb5eece91b99a99d71217bba1001c.cairo"
+                                            "filename": "autogen/starknet/external/get_counter/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 18,
+                                                "end_line": 17,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 18
+                                                "start_line": 17
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -3172,7 +3173,7 @@
                                     "While expanding the reference 'retdata_size' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 18
+                                "start_line": 17
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -3193,31 +3194,31 @@
                         "end_col": 44,
                         "end_line": 2,
                         "input_file": {
-                            "filename": "autogen/starknet/external/get_counter/c15deeadf6d1d88c57c7df96340cd60ac523be75512216e3db264ace7b0f6f05.cairo"
+                            "filename": "autogen/starknet/external/get_counter/5b2c763453f6c596f8b3a2290aac25647596fd7ef6915d7fbba58ad01f434d2b.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 18,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "parent_location": [
                                     {
                                         "end_col": 70,
                                         "end_line": 1,
                                         "input_file": {
-                                            "filename": "autogen/starknet/external/get_counter/4ba2b119ceb30fe10f4cca3c9d73ef620c0fb5eece91b99a99d71217bba1001c.cairo"
+                                            "filename": "autogen/starknet/external/get_counter/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo"
                                         },
                                         "parent_location": [
                                             {
                                                 "end_col": 17,
-                                                "end_line": 18,
+                                                "end_line": 17,
                                                 "input_file": {
-                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                                 },
                                                 "start_col": 6,
-                                                "start_line": 18
+                                                "start_line": 17
                                             },
                                             "While constructing the external wrapper for:"
                                         ],
@@ -3227,7 +3228,7 @@
                                     "While expanding the reference 'retdata' in:"
                                 ],
                                 "start_col": 6,
-                                "start_line": 18
+                                "start_line": 17
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -3245,20 +3246,20 @@
                     "flow_tracking_data": null,
                     "hints": [],
                     "inst": {
-                        "end_col": 71,
+                        "end_col": 72,
                         "end_line": 1,
                         "input_file": {
-                            "filename": "autogen/starknet/external/get_counter/4ba2b119ceb30fe10f4cca3c9d73ef620c0fb5eece91b99a99d71217bba1001c.cairo"
+                            "filename": "autogen/starknet/external/get_counter/da17921a4e81c09e730800bbf23bfdbe5e9e6bfaedc59d80fbf62087fa43c27d.cairo"
                         },
                         "parent_location": [
                             {
                                 "end_col": 17,
-                                "end_line": 18,
+                                "end_line": 17,
                                 "input_file": {
-                                    "filename": "/Users/msaug/Nethermind/starknet-cairo/l1-l2-messaging/contracts/l2/Balance.cairo"
+                                    "filename": "/Users/msaug/Nethermind/starknet-cairo-repo/l1-l2-messaging/contracts/l2/Balance.cairo"
                                 },
                                 "start_col": 6,
-                                "start_line": 18
+                                "start_line": 17
                             },
                             "While constructing the external wrapper for:"
                         ],
@@ -3401,7 +3402,7 @@
                 "type": "struct"
             },
             "__main__.counter.addr.Return": {
-                "cairo_type": "(res : felt)",
+                "cairo_type": "(res: felt)",
                 "type": "type_definition"
             },
             "__main__.counter.addr.SIZEOF_LOCALS": {
@@ -3447,7 +3448,7 @@
                 "type": "struct"
             },
             "__main__.counter.read.Return": {
-                "cairo_type": "(res : felt)",
+                "cairo_type": "(res: felt)",
                 "type": "type_definition"
             },
             "__main__.counter.read.SIZEOF_LOCALS": {
@@ -3538,7 +3539,7 @@
                 "type": "struct"
             },
             "__main__.get_counter.Return": {
-                "cairo_type": "(res : felt)",
+                "cairo_type": "(res: felt)",
                 "type": "type_definition"
             },
             "__main__.get_counter.SIZEOF_LOCALS": {
@@ -3610,7 +3611,7 @@
                 "type": "struct"
             },
             "__wrappers__.get_counter.Return": {
-                "cairo_type": "(syscall_ptr : felt*, pedersen_ptr : starkware.cairo.common.cairo_builtins.HashBuiltin*, range_check_ptr : felt, size : felt, retdata : felt*)",
+                "cairo_type": "(syscall_ptr: felt*, pedersen_ptr: starkware.cairo.common.cairo_builtins.HashBuiltin*, range_check_ptr: felt, size: felt, retdata: felt*)",
                 "type": "type_definition"
             },
             "__wrappers__.get_counter.SIZEOF_LOCALS": {
@@ -3634,7 +3635,7 @@
                         "offset": 1
                     },
                     "ret_value": {
-                        "cairo_type": "(res : felt)",
+                        "cairo_type": "(res: felt)",
                         "offset": 0
                     }
                 },
@@ -3648,7 +3649,7 @@
                 "type": "struct"
             },
             "__wrappers__.get_counter_encode_return.Return": {
-                "cairo_type": "(range_check_ptr : felt, data_len : felt, data : felt*)",
+                "cairo_type": "(range_check_ptr: felt, data_len: felt, data: felt*)",
                 "type": "type_definition"
             },
             "__wrappers__.get_counter_encode_return.SIZEOF_LOCALS": {
@@ -3679,7 +3680,7 @@
                 "type": "struct"
             },
             "__wrappers__.set_counter.Return": {
-                "cairo_type": "(syscall_ptr : felt*, pedersen_ptr : starkware.cairo.common.cairo_builtins.HashBuiltin*, range_check_ptr : felt, size : felt, retdata : felt*)",
+                "cairo_type": "(syscall_ptr: felt*, pedersen_ptr: starkware.cairo.common.cairo_builtins.HashBuiltin*, range_check_ptr: felt, size: felt, retdata: felt*)",
                 "type": "type_definition"
             },
             "__wrappers__.set_counter.SIZEOF_LOCALS": {
@@ -3693,6 +3694,14 @@
             "__wrappers__.set_counter_encode_return.memcpy": {
                 "destination": "starkware.cairo.common.memcpy.memcpy",
                 "type": "alias"
+            },
+            "starkware.cairo.common.bool.FALSE": {
+                "type": "const",
+                "value": 0
+            },
+            "starkware.cairo.common.bool.TRUE": {
+                "type": "const",
+                "value": 1
             },
             "starkware.cairo.common.cairo_builtins.BitwiseBuiltin": {
                 "full_name": "starkware.cairo.common.cairo_builtins.BitwiseBuiltin",
@@ -3767,6 +3776,25 @@
                 "size": 3,
                 "type": "struct"
             },
+            "starkware.cairo.common.cairo_builtins.KeccakBuiltin": {
+                "full_name": "starkware.cairo.common.cairo_builtins.KeccakBuiltin",
+                "members": {
+                    "input": {
+                        "cairo_type": "starkware.cairo.common.keccak_state.KeccakBuiltinState",
+                        "offset": 0
+                    },
+                    "output": {
+                        "cairo_type": "starkware.cairo.common.keccak_state.KeccakBuiltinState",
+                        "offset": 8
+                    }
+                },
+                "size": 16,
+                "type": "struct"
+            },
+            "starkware.cairo.common.cairo_builtins.KeccakBuiltinState": {
+                "destination": "starkware.cairo.common.keccak_state.KeccakBuiltinState",
+                "type": "alias"
+            },
             "starkware.cairo.common.cairo_builtins.SignatureBuiltin": {
                 "full_name": "starkware.cairo.common.cairo_builtins.SignatureBuiltin",
                 "members": {
@@ -3818,6 +3846,53 @@
             },
             "starkware.cairo.common.hash.HashBuiltin": {
                 "destination": "starkware.cairo.common.cairo_builtins.HashBuiltin",
+                "type": "alias"
+            },
+            "starkware.cairo.common.keccak_state.KeccakBuiltinState": {
+                "full_name": "starkware.cairo.common.keccak_state.KeccakBuiltinState",
+                "members": {
+                    "s0": {
+                        "cairo_type": "felt",
+                        "offset": 0
+                    },
+                    "s1": {
+                        "cairo_type": "felt",
+                        "offset": 1
+                    },
+                    "s2": {
+                        "cairo_type": "felt",
+                        "offset": 2
+                    },
+                    "s3": {
+                        "cairo_type": "felt",
+                        "offset": 3
+                    },
+                    "s4": {
+                        "cairo_type": "felt",
+                        "offset": 4
+                    },
+                    "s5": {
+                        "cairo_type": "felt",
+                        "offset": 5
+                    },
+                    "s6": {
+                        "cairo_type": "felt",
+                        "offset": 6
+                    },
+                    "s7": {
+                        "cairo_type": "felt",
+                        "offset": 7
+                    }
+                },
+                "size": 8,
+                "type": "struct"
+            },
+            "starkware.cairo.common.math.FALSE": {
+                "destination": "starkware.cairo.common.bool.FALSE",
+                "type": "alias"
+            },
+            "starkware.cairo.common.math.TRUE": {
+                "destination": "starkware.cairo.common.bool.TRUE",
                 "type": "alias"
             },
             "starkware.starknet.common.storage.ADDR_BOUND": {
@@ -3939,7 +4014,7 @@
                         "cairo_type": "felt",
                         "offset": 2
                     },
-                    "reserved": {
+                    "deploy_from_zero": {
                         "cairo_type": "felt",
                         "offset": 5
                     },
@@ -4456,6 +4531,10 @@
                         "cairo_type": "felt",
                         "offset": 2
                     },
+                    "nonce": {
+                        "cairo_type": "felt",
+                        "offset": 7
+                    },
                     "signature": {
                         "cairo_type": "felt*",
                         "offset": 4
@@ -4473,7 +4552,7 @@
                         "offset": 0
                     }
                 },
-                "size": 7,
+                "size": 8,
                 "type": "struct"
             },
             "starkware.starknet.common.syscalls.storage_read": {
@@ -4504,7 +4583,7 @@
                 "type": "struct"
             },
             "starkware.starknet.common.syscalls.storage_read.Return": {
-                "cairo_type": "(value : felt)",
+                "cairo_type": "(value: felt)",
                 "type": "type_definition"
             },
             "starkware.starknet.common.syscalls.storage_read.SIZEOF_LOCALS": {

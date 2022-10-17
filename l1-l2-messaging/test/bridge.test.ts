@@ -70,7 +70,6 @@ describe("Greeter", function () {
     const exp2 = number.toBN(l2Balance.address).toString();
     const exp3 = number.toBN(l2Bridge.address).toString();
 
-
     expect(_msg_address).to.equal(mockStarknetMessagingAddress);
     expect(_targetContract).to.equal(exp2);
     expect(_l2Bridge).to.equal(exp3);

@@ -9,23 +9,24 @@ from starkware.cairo.common.alloc import alloc
 
 @l1_handler
 @raw_input
-func __l1_default__{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr : felt}(
-    selector : felt, calldata_size : felt, calldata : felt*
-):
-    # Careful, the arguments are received in the inverse order
-    alloc_locals
+func __l1_default__{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_check_ptr: felt}(
+    selector: felt, calldata_size: felt, calldata: felt*
+) {
+    // Careful, the arguments are received in the inverse order
+    alloc_locals;
     %{
         print("message received")
         print(ids.selector)
         print(ids.calldata_size)
     %}
-    let function_arguments : felt* = calldata + 3  # calldata[0] is the from_address, calldata[1] is contract address, calldata[2] is the number of arguments
+    // calldata[0] is the from_address, calldata[1] is contract address, calldata[2] is the number of arguments
+    let function_arguments: felt* = calldata + 3;
 
     call_contract(
         contract_address=calldata[1],
         function_selector=selector,
         calldata_size=calldata[2],
         calldata=function_arguments,
-    )
-    return ()
-end
+    );
+    return ();
+}
